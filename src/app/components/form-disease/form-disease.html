@@ -1,0 +1,10 @@
+<form [formGroup]="diseaseForm" (submit)="submit()" class="generate-desease-form flex flex-row gap-4 mt-4  w-full ">
+    <mat-form-field class="w-[75%]">
+        <mat-label>Enter a Disease</mat-label>
+        <input matInput placeholder="Malaria" formControlName="disease">
+        @if(diseaseForm.get('disease')?.invalid && (diseaseForm.get('disease')?.touched || diseaseForm.get('disease')?.dirty)){
+            <mat-error>Please enter a valid disease name.</mat-error>
+        }    
+    </mat-form-field>
+    <button matFab extended color="primary" class="w-32" [disabled]="diseaseForm.invalid">Generate</button>
+</form>

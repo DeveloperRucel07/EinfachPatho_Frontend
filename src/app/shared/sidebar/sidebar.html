@@ -1,1 +1,14 @@
-<p>sidebar works!</p>
+<section class="sidebar absolute top-0 left-0 md:flex hidden">
+    <aside class="sidebar-container w-64 bg-gray-800 h-screen w-[280px]! text-white p-4 flex flex-col">
+        <div class="logo-container flex items-center gap-2 mb-6">
+            <img src="logo.png" alt="EinfachPatho Logo" class="logo h-full w-18" />
+            <span class="logo-text text-xl font-bold">EinfachPatho</span>
+        </div>
+        <nav class="sidebar-nav flex flex-col gap-4">
+            <a [routerLink]="['/dashboard']" class="sidebar-link p-2 bg-gray-700 rounded hover:bg-gray-600 text-white font-semibold cursor-pointer">Dashboard</a>
+            <a routerLink="/profile" class="sidebar-link p-2 bg-gray-700 rounded hover:bg-gray-600 text-white font-semibold cursor-pointer">Profile</a>
+            <a routerLink="/settings" class="sidebar-link p-2 bg-gray-700 rounded hover:bg-gray-600 text-white font-semibold cursor-pointer">Settings</a>
+            <a routerLink="/help" class="sidebar-link p-2 bg-gray-700 rounded hover:bg-gray-600 text-white font-semibold cursor-pointer">Help</a>
+        </nav>
+    </aside>
+</section>

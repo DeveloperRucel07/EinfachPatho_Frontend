@@ -1,0 +1,96 @@
+<div class="max-w-[500px] flex w-full justify-between items-center header-dialog !p-1 ">
+        <h2 mat-dialog-title class="font-bold text-2xl">Sign In</h2>
+        <button  aria-label="Close" class="!text-gray-600" mat-dialog-close>
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+    <mat-dialog-content class="max-w-[500px] flex flex-col gap-4 items-center justify-center w-full content-dialog">
+        <form [formGroup]="signupForm" (ngSubmit)="submit()" class="signup-form flex flex-col gap-4 w-full">
+
+        <mat-form-field  class="form-control">
+            <mat-label>Name: </mat-label>
+            <input matInput placeholder="Name" formControlName="name">
+            <button type="button"
+                matIconButton
+                matSuffix
+                >
+                <mat-icon>person</mat-icon>
+            </button>
+            @if(name?.errors?.['required']){
+               <mat-error>
+                    Your Name is required
+                </mat-error> 
+            }
+            
+        </mat-form-field>
+
+        <mat-form-field  class="form-control">
+            <mat-label>Email: </mat-label>
+            <input matInput placeholder="Email" formControlName="email">
+            <button type="button"
+                matIconButton
+                matSuffix
+                >
+                <mat-icon>email</mat-icon>
+            </button>
+            @if(email?.errors?.['required']){
+               <mat-error>
+                   Your Email is required
+                </mat-error> 
+            }@else if(email?.errors?.['email']){
+                <mat-error>
+                   Please Enter a Valid Email
+                </mat-error> 
+            }
+            
+        </mat-form-field>
+
+        <mat-form-field  class="form-control">
+            <mat-label>Password: </mat-label>
+            <input matInput placeholder="Password" formControlName="password" [type]="type">
+            <button type="button"
+                matIconButton
+                matSuffix
+                (click)="clickEvent($event)"
+                [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide()"
+                >
+                <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            @if(password?.errors?.['required']){
+               <mat-error>
+                    Password is required
+                </mat-error>
+            }
+        </mat-form-field>
+
+        <mat-form-field  class="form-control">
+            <mat-label>Confirm Password: </mat-label>
+            <input matInput placeholder="Password" formControlName="confirmPassword" [type]="type">
+            <button type="button"
+                matIconButton
+                matSuffix
+                (click)="clickEvent($event)"
+                [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide()"
+                >
+                <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            @if(confirmPassword?.errors?.['required']){
+               <mat-error>
+                    Confirm Password is required
+                </mat-error>
+            }@else if(signupForm.errors?.['passwordDontMatch']){
+                <mat-error>
+                    Passwords should match.
+                </mat-error>
+            }
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit">Sign Up</button>
+    </form>
+    <div class="text-center mt-4">
+        <p>Already have an account? <a mat-button color="accent" (click)="openLogin()">Login</a></p>
+    </div>
+</mat-dialog-content>
+

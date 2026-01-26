@@ -1,13 +1,21 @@
-<section class="header-section w-full bg-green-500">
-    <header class="header flex justify-between items-center p-4 shadow-md">
+<section class="header-section w-full bg-blue-500 h-20 mb-2">
+    <header class="header flex justify-between items-center p-4 shadow-md h-full">
         <div class="logo-container flex items-center gap-2">
-            <img src="logo.png" alt="EinfachPatho Logo" class="logo w-12" />
+            <img src="logo.png" alt="EinfachPatho Logo" class="logo h-full w-18 md:hidden" />
         </div>
         <nav class="nav-links flex gap-6 text-lg mr-4">
             <a routerLink="/" class="nav-link p-1 m-1 text-center text-white text-lg font-semibold cursor-pointer">Home</a>
-            <a routerLink="/mydashboard" class="nav-link p-1 m-1 text-center text-white text-lg font-semibold cursor-pointer">My Dashboard</a>
             <a routerLink="/about" class="nav-link p-1 m-1 text-center text-white text-lg font-semibold cursor-pointer">About</a>
-            <a routerLink="/contact" class="nav-link p-1 m-1 text-center text-white text-lg font-semibold cursor-pointer">Contact</a>
+            <button matButton="filled" class="ml-2 border-white! text-white!" (click)="openDialogLogin()">
+                <mat-icon>person</mat-icon>
+                Login
+            </button>
+            <button matButton="outlined" class="ml-2 border-white! text-white!" (click)="openDialogSignup()">
+                <mat-icon>person</mat-icon>
+                Sign Up
+            </button>
         </nav>
     </header>
 </section>
+
+<app-sidebar></app-sidebar>
