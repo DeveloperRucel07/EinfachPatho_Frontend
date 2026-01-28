@@ -5,7 +5,6 @@ import { MatFormField, MatError, MatLabel, MatFormFieldModule } from "@angular/m
 import { MatDialogModule} from '@angular/material/dialog';
 import { MatIcon, MatIconModule } from "@angular/material/icon";
 import { MatInputModule } from '@angular/material/input';
-import { RouterLink } from "@angular/router";
 
 export function passwordsMatchValidator() : ValidatorFn{
   return (control: AbstractControl) : ValidationErrors | null =>{
@@ -23,7 +22,7 @@ export function passwordsMatchValidator() : ValidatorFn{
 
 @Component({
   selector: 'app-form-signup',
-  imports: [MatDialogModule, MatButtonModule, MatFormFieldModule, MatIconModule, MatInputModule, ReactiveFormsModule, MatFormField, MatLabel, MatError, MatIcon, RouterLink],
+  imports: [MatDialogModule, MatButtonModule, MatFormFieldModule, MatIconModule, MatInputModule, ReactiveFormsModule, MatFormField, MatLabel, MatError, MatIcon],
   templateUrl: './form-signup.html',
   styleUrl: './form-signup.scss',
 })

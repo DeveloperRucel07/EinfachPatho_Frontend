@@ -29,7 +29,7 @@ export class Header {
 
   openDialogSignup() {
     this.dialog.open(FormSignup, {
-      width: '500px',
+      width: '400px',
     });
   }
 

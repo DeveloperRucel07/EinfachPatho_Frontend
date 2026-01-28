@@ -1,0 +1,93 @@
+<div class="disease-detail mr-6">
+@if(disease(); as disease){
+
+    <section class="header flex flex-row items-center mb-2 ">
+        <h1 class="w-100 font-bold text-4xl">
+            ⚕️{{ disease.disease_id}}
+        </h1>
+        <div>
+            <h2 class="font-bold text-3xl text-red-400">{{ disease.name}}</h2>
+            <p class="text-xl">{{disease.category}}</p>
+        </div>
+
+    </section>
+    <hr class="border">
+    <section class="about  flex flex-col md:flex-row gap-10 items-center">
+        <div class="definition  shadow shadow-green-300  p-2 m-2 md:w-[50%] md:h-[160px] w-full h-auto">
+            <h2 class="text-2xl w-[120px] h-auto bg-green-500 text-center font-semi-bold"> Definition </h2>
+            <p class="text-lg">
+                {{disease.durst_data.definition}}
+            </p>
+        </div>
+        <div class="origin shadow shadow-blue-300 p-2 m-2 md:w-[50%] md:h-[160px] w-full h-auto">
+            <h2 class="text-2xl w-[120px] h-auto bg-blue-500 text-center font-semi-bold"> Ursachen </h2>
+            <p class="text-lg">
+                {{disease.durst_data.ursachen.text}}
+            </p>
+            <p class="text-green-500 text-lg">
+                {{disease.durst_data.ursachen.keywords}}
+            </p>
+        </div>
+    </section>
+    
+    <section class="risiko flex flex-col md:flex-row gap-2 items-center">
+        <div class="risks shadow shadow-amber-300 p-2 m-2 md:w-[34%] md:h-[245px] w-full h-auto">
+            <h2 class="text-2xl w-[170px] h-auto bg-amber-500 text-center font-semi-bold">Risikofaktoren </h2>
+            <ul>
+                @for(risiko of disease.durst_data.risikofaktoren; track risiko){
+                    <li class="text-lg text-amber-500 flex items-center"><mat-icon>check_circle</mat-icon>{{risiko}}</li>
+                }
+            </ul>
+
+
+        </div>
+        <div class="symptome shadow shadow-red-300 p-2 m-2 md:w-[33%] md:h-[245px] w-full h-auto">
+            <h2 class="text-2xl w-[120px] h-auto bg-red-500 text-center font-semi-bold"> Symptome </h2>
+            <ul>
+                @for(symptome of disease.durst_data.symptome.list; track symptome){
+                    <li class="text-lg text-red-500 flex items-center"><mat-icon>check</mat-icon>{{symptome}}</li>
+                }
+            </ul>
+            @if(disease.durst_data.symptome.red_flags;as red_flag){
+                <p class="p-1 text-lg">Alarm: {{red_flag}}</p>
+            }
+
+        </div>
+        <div class="therapie shadow shadow-blue-500 p-2 m-2 md:w-[33%] md:h-[245px] w-full h-auto">
+            <h2 class="text-2xl w-[120px] h-auto bg-green-500 text-center text-white font-semi-bold"> Therapie </h2>
+            <ul>
+                @for(therapie of disease.durst_data.therapie_massnahmen.immediate_actions; track therapie){
+                    <li class="text-lg text-green-600 flex items-center"><mat-icon>check_box</mat-icon>{{therapie}}</li>
+                }
+            </ul>
+            @if(disease.durst_data.therapie_massnahmen.diagnostic_gold_standard; as standar_diagnose){
+                <p><span class="text-lg">Standard Diagnose:</span> {{standar_diagnose}}</p>
+            }
+             
+        </div>
+    </section>
+    <section class="quiz p-3 m-2">
+        <div class="flex items-center justify-center">
+            <button matFab extended  class="bg-blue-500! text-white! text-xl! ml-4 mr-4" aria-label="quiz icon"> <mat-icon>quiz</mat-icon> Start Quiz</button>
+        </div>
+
+    </section>
+    <section class="footer">
+        <hr>
+        <div class="sources">
+            @for(source of disease.sources; track source){
+                <div class="flex flex-row justify-between items-center text-xl">
+                    <p class="text-xl"><span class="font-bold">Quelle: </span> {{ source.source_name}} </p>
+                    <a href="{{ source.link}}" class="text-blue-500">Mehr daruber lesen🪢</a>
+                </div>
+            }
+            <div class="flex items-center justify-end p-2">
+
+                <button matButton="filled" class=""><a href="{{disease.durst_data.therapie_massnahmen.guideline_link}}" class="flex items-center gap-2">Therapie Guideline <mat-icon>arrow_forward</mat-icon></a></button>
+            </div>
+
+        </div>
+
+    </section>
+}
+</div>

@@ -13,6 +13,10 @@ export const routes: Routes = [
     {
         path: 'dashboard',
         loadComponent: () => import('./pages/dashboard/dashboard').then(m => m.Dashboard)
+    },
+    {
+        path: 'disease/:id',
+        loadComponent: () => import('./pages/disease-detail/disease-detail').then(m => m.DiseaseDetail)
     }
 
 ];

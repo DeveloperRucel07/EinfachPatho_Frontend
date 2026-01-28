@@ -1,11 +1,11 @@
 <div class="max-w-[500px] flex w-full justify-between items-center header-dialog !p-1 ">
-        <h2 mat-dialog-title class="font-bold text-2xl">Sign In</h2>
-        <button  aria-label="Close" class="!text-gray-600" mat-dialog-close>
-            <mat-icon>close</mat-icon>
-        </button>
-    </div>
-    <mat-dialog-content class="max-w-[500px] flex flex-col gap-4 items-center justify-center w-full content-dialog">
-        <form [formGroup]="signupForm" (ngSubmit)="submit()" class="signup-form flex flex-col gap-4 w-full">
+    <h2 mat-dialog-title class="font-bold text-2xl">Sign Up</h2>
+    <button  aria-label="Close" class="!text-gray-600" mat-dialog-close>
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<mat-dialog-content class="max-w-[500px] flex flex-col gap-4 items-center w-full content-dialog h-full">
+    <form [formGroup]="signupForm" (ngSubmit)="submit()" class="signup-form flex flex-col gap-4 w-full h-full">
 
         <mat-form-field  class="form-control">
             <mat-label>Name: </mat-label>
@@ -87,7 +87,7 @@
             }
         </mat-form-field>
 
-        <button mat-raised-button color="primary" type="submit">Sign Up</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="signupForm.invalid">Sign Up</button>
     </form>
     <div class="text-center mt-4">
         <p>Already have an account? <a mat-button color="accent" (click)="openLogin()">Login</a></p>

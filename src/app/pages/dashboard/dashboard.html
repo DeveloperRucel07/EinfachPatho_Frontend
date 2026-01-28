@@ -1,6 +1,26 @@
 
-<section>
-    <h1 class="text-3xl font-bold mb-4">Dashboard Page</h1>
-    <p class="text-lg">This is the dashboard where you can see an overview of your activities.</p>
+<section class="content mt-6">
+    <div>
+        <p class="text-base">Explore our resources and tools to enhance your understanding of pathology.</p>
+    </div>
+    <div class="generate-desease-section mt-6 w-full ">
+        <app-form-disease></app-form-disease>
+    </div> 
+</section>
     
+<section class="disease-list">
+    <h1 class="text-4xl font-bold">Already Learned disease</h1>
+    <div>
+        <p>The last already learned diseases will appear here.</p>
+        <div class="disease-cards-grid mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            @if(diseases && diseases.length > 0) {
+
+                @for(disease of diseases; track disease) {
+
+                    <app-disease-card  [diseaseId]="disease.disease_id"></app-disease-card>
+                }
+
+            }
+        </div>
+    </div>
 </section>
