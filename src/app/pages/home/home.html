@@ -1,22 +1,209 @@
-<section class="home">
-    <div class="header">
-        <h1 class="text-3xl font-bold mb-4">Welcome to EinfachPatho Home Page</h1>
-        <p class="text-lg"> What Disease do you need to learn today.</p>
+<section
+  class="home bg-background-light dark:bg-background-dark font-display text-slate-900 text-black dark:text-white transition-colors duration-300"
+>
+  <header
+    class="sticky top-0 z-50 w-full border-b border-white/10 bg-background-dark/80 backdrop-blur-md"
+  >
+    <div class="mx-auto flex max-w-full items-center justify-between px-6 py-4">
+      <div class="flex items-center gap-3">
+        <div
+          class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-white! shadow-lg shadow-primary/20"
+        >
+          <mat-icon class="text-2xl text-white!">monitor_heart</mat-icon>
+        </div>
+        <h2 class="text-xl font-bold tracking-tight">EinfachPatho</h2>
+      </div>
+      <nav class="flex items-center gap-4">
+        <button class="hidden sm:block text-sm font-semibold hover:text-primary transition-colors">
+          Login
+        </button>
+        <button
+          class="rounded-full bg-primary px-6 py-2.5 text-sm font-bold text-white transition-all hover:scale-105 active:scale-95 glow-blue"
+        >
+          Kostenlos starten
+        </button>
+      </nav>
     </div>
-    <section class="content mt-6">
-        <div>
-            <p class="text-base">Explore our resources and tools to enhance your understanding of pathology.</p>
-        </div>
-        <div class="generate-desease-section mt-6 w-full ">
-            <app-form-disease></app-form-disease>
-        </div>
-        
-    </section>
-    <section class="disease-list">
-        <h1 class="text-4xl font-bold">Already Learned disease</h1>
-        <div>
-            <p>The last already learned diseases will appear here.</p>
-        </div>
-
-    </section>
+  </header>
 </section>
+
+<main class="flex-1">
+  <section class="mx-auto max-w-7xl px-6 py-16 md:py-24">
+    <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+      <div class="flex flex-col gap-8">
+        <div
+          class="inline-flex w-fit items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1 text-xs font-bold uppercase tracking-widest text-primary"
+        >
+          <span class="relative flex h-2 w-2">
+            <span
+              class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"
+            ></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+          </span>
+          Neu: 3D Anatomie Atlas
+        </div>
+        <h1 class="text-5xl font-black leading-tight tracking-tight text-white md:text-7xl">
+          Meistere die Medizin mit
+          <span
+            class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent-emerald"
+            >modernster Technologie</span
+          >
+        </h1>
+        <p class="max-w-xl text-lg leading-relaxed text-slate-400">
+          Erlebe interaktives Pathologie-Lernen auf einem neuen Level. Unsere Plattform kombiniert
+          medizinische Präzision mit modernster 3D-Visualisierung für deinen Studienerfolg.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <button
+            class="rounded-xl bg-primary px-8 py-4 text-base font-bold text-white transition-all hover:translate-y-[-2px] hover:shadow-xl hover:shadow-primary/30 glow-blue"
+          >
+            Jetzt kostenlos starten
+          </button>
+          <button
+            class="flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-8 py-4 text-base font-bold text-white backdrop-blur-sm transition-all hover:bg-white/10"
+          >
+            <mat-icon class="material-symbols-outlined">play_circle</mat-icon>
+            Demo ansehen
+          </button>
+        </div>
+      </div>
+      <div class="relative">
+        <div
+          class="absolute -inset-4 rounded-xl bg-gradient-to-tr from-primary/20 to-accent-emerald/20 blur-2xl opacity-50"
+        ></div>
+        <div class="relative rounded-2xl border border-white/10 bg-[#1c1f27] p-2 shadow-2xl">
+          <img
+            class="rounded-xl w-full object-cover aspect-video"
+            data-alt="Modern medical dashboard UI on a laptop screen"
+            onerror="
+              this.src =
+                'https://placeholder.pics/svg/800x450/1c1f27/ffffff?text=3D+Dashboard+Mockup'
+            "
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJgQ-kMjW_zk9X7g56DFEz1_SVY6MtU3Z78rU2xp7oIniDBvstn9Uv82Zj47hTqphfMQnxne1VNaMl3Imjqymh5NMDkCKBnMkx590ofdqJ8_yBd5A-qucxKrOkg21n9C2N6ywVnqVHgXl3hPDTqRnWth0JCyPSi-G4ajt9PwttWIkLgP-l_ZU4q7xls8JNrjx-PX2Z1_-SV_UfYdaOKzqT78DmPF-0dXE5OctjfPG8mTHsHGjS5skBeI_O8yuGleWmtRw79zUodCcS"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Trusted By -->
+  <section class="border-y border-white/5 bg-white/2 py-10">
+    <div class="mx-auto max-w-7xl px-6 text-center">
+      <p class="mb-8 text-xs font-bold uppercase tracking-[0.2em] text-slate-500">
+        Vertraut von führenden Institutionen
+      </p>
+      <div
+        class="flex flex-wrap justify-center gap-12 opacity-40 grayscale transition-all hover:grayscale-0"
+      >
+        <div class="flex items-center gap-2 text-xl font-bold text-white">
+          <mat-icon class="material-symbols-outlined">account_balance</mat-icon>
+          CHARITÉ
+        </div>
+        <div class="flex items-center gap-2 text-xl font-bold text-white">
+          <mat-icon class="material-symbols-outlined">school</mat-icon> LMU UHK
+        </div>
+        <div class="flex items-center gap-2 text-xl font-bold text-white">
+          <mat-icon class="material-symbols-outlined">medical_services</mat-icon>
+          CLINICS DE
+        </div>
+        <div class="flex items-center gap-2 text-xl font-bold text-white">
+          <mat-icon class="material-symbols-outlined">science</mat-icon>
+          LB HEIDEL
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Features -->
+  <section class="mx-auto max-w-7xl px-6 py-24">
+    <div class="mb-16 text-center">
+      <h2 class="mb-4 text-3xl font-bold text-white md:text-5xl">
+        Lerne effizienter, verstehe tiefer
+      </h2>
+      <p class="mx-auto max-w-2xl text-slate-400">
+        Die EinfachPatho-Plattform bietet alles, was du für ein erfolgreiches Medizinstudium benötigst.
+        Entwickelt von Ärzten für die nächste Generation.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+      <!-- Feature 1 -->
+      <div
+        class="glass-card flex flex-col gap-6 rounded-2xl p-8 transition-all hover:translate-y-[-8px] hover:border-primary/50"
+      >
+        <div
+          class="flex h-14 w-14 items-center justify-center rounded-xl bg-primary/20 text-primary"
+        >
+          <mat-icon class="material-symbols-outlined text-3xl">quiz</mat-icon>
+        </div>
+        <div>
+          <h3 class="mb-3 text-xl font-bold text-white">Interaktive Quizze</h3>
+          <p class="text-sm leading-relaxed text-slate-400">
+            Verfestige dein Wissen mit spielerischen Quiz-Formaten, adaptivem Lernen und direktem
+            Experten-Feedback.
+          </p>
+        </div>
+        <a class="mt-auto inline-flex items-center gap-2 text-sm font-bold text-primary" href="#">
+          Mehr erfahren
+          <mat-icon class="material-symbols-outlined text-sm">arrow_forward</mat-icon>
+        </a>
+      </div>
+      <!-- Feature 2 -->
+      <div
+        class="glass-card flex flex-col gap-6 rounded-2xl p-8 transition-all hover:translate-y-[-8px] hover:border-accent-emerald/50"
+      >
+        <div
+          class="flex h-14 w-14 items-center justify-center rounded-xl bg-accent-emerald/20 text-accent-emerald"
+        >
+          <mat-icon class="material-symbols-outlined text-3xl">view_in_ar</mat-icon>
+        </div>
+        <div>
+          <h3 class="mb-3 text-xl font-bold text-white">Detaillierte Pathologie</h3>
+          <p class="text-sm leading-relaxed text-slate-400">
+            Erkunde hochauflösende 3D-Modelle und mikroskopische Schnitte in Echtzeit mit unserer
+            proprietären Rendering-Engine.
+          </p>
+        </div>
+        <a
+          class="mt-auto inline-flex items-center gap-2 text-sm font-bold text-accent-emerald"
+          href="#"
+        >
+          Modelle entdecken
+          <mat-icon class="material-symbols-outlined text-sm">arrow_forward</mat-icon>
+        </a>
+      </div>
+      <!-- Feature 3 -->
+      <div
+        class="glass-card flex flex-col gap-6 rounded-2xl p-8 transition-all hover:translate-y-[-8px] hover:border-primary/50"
+      >
+        <div
+          class="flex h-14 w-14 items-center justify-center rounded-xl bg-primary/20 text-primary"
+        >
+          <mat-icon class="material-symbols-outlined text-3xl">insights</mat-icon>
+        </div>
+        <div>
+          <h3 class="mb-3 text-xl font-bold text-white">Fortschrittstracking</h3>
+          <p class="text-sm leading-relaxed text-slate-400">
+            Behalte deine Lernziele im Auge mit datengestützten Analysen. Erkenne Wissenslücken
+            bevor sie zum Problem werden.
+          </p>
+        </div>
+        <a class="mt-auto inline-flex items-center gap-2 text-sm font-bold text-primary" href="#">
+          Analyse ansehen
+          <mat-icon class="material-symbols-outlined text-sm">arrow_forward</mat-icon>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="flex flex-col items-center justify-center border-t border-white/10 pt-4">
+    <div>
+        <ul class="flex flex-row gap-4 text-lg text-slate-500">
+          <li><a class="hover:text-primary" href="#">Datenschutz</a></li>
+          <li><a class="hover:text-primary" href="#">Impressum</a></li>
+          <li><a class="hover:text-primary" href="#">AGB</a></li>
+          <li><a class="hover:text-primary" href="#">Cookies</a></li>
+        </ul>
+    </div>
+    <div class="text-center text-sm text-slate-600 pt-2">
+      © 2026 EinfachPatho Medical Education GmbH. Alle Rechte vorbehalten.
+    </div>
+</footer>

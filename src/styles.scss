@@ -8,6 +8,21 @@
 @use 'tailwindcss';
 
 
+@theme {
+  --color-primary: #135bec;
+  --color-accent: #10b981;
+  --color-background-light: #f6f6f8;
+  --color-background-dark: #0a0a0b;
+  
+  --font-display: "Manrope", sans-serif;
+  
+  --radius-DEFAULT: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+}
+
+
+
 html {
   @include mat.theme((
     color: (
@@ -20,7 +35,7 @@ html {
 }
 
 body {
-  color-scheme: light;
+  color-scheme: dark;
 
   background-color: var(--mat-sys-surface);
   color: var(--mat-sys-on-surface);
