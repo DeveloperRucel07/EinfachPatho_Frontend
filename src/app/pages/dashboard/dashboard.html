@@ -1,26 +1,159 @@
+<section class="dashboard bg-background-light dark:bg-background-dark text-slate-900 dark:text-white mesh-gradient flex min-h-screen">
+    <app-sidebar class=""></app-sidebar>
 
-<section class="content mt-6">
-    <div>
-        <p class="text-base">Explore our resources and tools to enhance your understanding of pathology.</p>
-    </div>
-    <div class="generate-desease-section mt-6 w-full ">
-        <app-form-disease></app-form-disease>
-    </div> 
-</section>
-    
-<section class="disease-list">
-    <h1 class="text-4xl font-bold">Already Learned disease</h1>
-    <div>
-        <p>The last already learned diseases will appear here.</p>
-        <div class="disease-cards-grid mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            @if(diseases && diseases.length > 0) {
-
-                @for(disease of diseases; track disease) {
-
-                    <app-disease-card  [diseaseId]="disease.disease_id"></app-disease-card>
-                }
-
-            }
+    <div class="mx-auto px-8 py-10 ml-60">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10">
+            <div class="flex flex-col gap-1">
+              <h1 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white"> Hallo, Dr. Müller </h1>
+              <p class="text-slate-500 dark:text-[#9da6b9]">
+                Willkommen zurück. Was möchten Sie heute lernen?
+              </p>
+            </div>
+            <div class="w-full md:w-96">
+              <label class="flex flex-col h-12 w-full">
+                <div class="flex w-full flex-1 items-stretch rounded-xl h-full shadow-sm">
+                  <div class="text-slate-400 dark:text-[#9da6b9] flex border-none bg-white dark:bg-[#282e39] items-center justify-center pl-4 rounded-l-xl cursor-pointer">
+                    <mat-icon class="material-symbols-outlined">search</mat-icon>
+                  </div>
+                  <input
+                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-r-xl text-slate-900 dark:text-white focus:outline-0 focus:ring-0 border-none bg-white dark:bg-[#282e39] h-full placeholder:text-slate-400 dark:placeholder:text-[#9da6b9] px-4 text-base font-normal"
+                    placeholder="Krankheiten suchen..."
+                    value=""
+                  />
+                </div>
+              </label>
+            </div>
         </div>
+
+        <section class="mb-12">
+            <div class="flex items-center justify-between mb-6">
+              <h2 class="text-xl font-bold tracking-tight text-slate-900 dark:text-white"> Zuletzt gelernt </h2>
+              <button class="text-primary text-sm font-semibold hover:underline" > Alle ansehen</button>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="group relative overflow-hidden rounded-xl bg-white dark:bg-[#1c1f27] border border-slate-200 dark:border-slate-800 shadow-sm transition-all hover:shadow-md">
+                    <div class="flex flex-col @container md:flex-row">
+                        <div
+                            class="w-full md:w-48 bg-center bg-no-repeat aspect-video md:aspect-square bg-cover"
+                            data-alt="Microscopic view of influenza virus"
+                            style="
+                            background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuBHPu8IVkgiowJFni4bMv8Oy_sQCuA0mqm-9Hkmxza9CxKLAXuUObNhdzYvd03yrzkrinPwMC5cINEcmvCSvtiD-GoZRYuW_urhL3grdJPQHFGGwKVG8qYi8zO5G4ix0-6Kq8FE7DJT4tUPNrbUuFkPRrcgsFLjO5ZLJX1KzIP7DgcYGkZ2l7SObdxcXyNeSQ48wBjVvRAr9cYr29chaU2lFkdOfPK6iUqimu6T3wSHxpKl1K_N089Jq3_WuQIYa-eBOVqFr0YrKaAi&quot;);
+                            "
+                        ></div>
+                        <div class="flex-1 p-5 flex flex-col justify-between">
+                            <div>
+                            <p class="text-slate-900 dark:text-white text-lg font-bold mb-1">
+                                Influenza
+                            </p>
+                            <p class="text-slate-500 dark:text-[#9da6b9] text-sm mb-4">
+                                Pathogenese und Symptomatik
+                            </p>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="flex flex-col gap-2">
+                                    <div class="flex justify-between items-center text-xs text-slate-500 dark:text-[#9da6b9]">
+                                        <span>Fortschritt</span>
+                                        <span class="font-bold text-primary">80%</span>
+                                    </div>
+                                    <div class="h-1.5 w-full bg-slate-100 dark:bg-[#3b4354] rounded-full overflow-hidden">
+                                        <div class="h-full bg-primary rounded-full" style="width: 80%"></div>
+                                    </div>
+                                </div>
+                                <button class="w-full bg-primary hover:bg-blue-700 text-white text-sm font-semibold py-2 rounded-lg transition-colors">
+                                    Weiterlernen
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-xl bg-white dark:bg-[#1c1f27] border border-slate-200 dark:border-slate-800 shadow-sm transition-all hover:shadow-md">
+                    <div class="flex flex-col @container md:flex-row">
+                        <div
+                            class="w-full md:w-48 bg-center bg-no-repeat aspect-video md:aspect-square bg-cover"
+                            data-alt="Anatomical heart illustration"
+                            style="
+                            background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuACtBx4NP0ghkcBzICPAiIn9-XP0mpTF4hED-kw1Rwso3FKFXjVjQImTbNT0ErrvLb0OkyYRCp3nEIk8yUPDcYc3sGN-d0EU8Dk51sv6xjWD6nY7iLc3dU9ZSgzK3Rw-ymOqIF7wDKlVTszcnRgyz828l8B9PqxQTUku2JRiIEz5xfSZPMWEHD2FGUtqRKRv65dEP3235-29T49tf_6E41J8OSerldZ9ASQLypd6q_NA86WbyCbWbiruUxs-qRY-5EWjYZ3ZBPxhZvt&quot;);
+                            "
+                        ></div>
+                        <div class="flex-1 p-5 flex flex-col justify-between">
+                            <div>
+                            <p class="text-slate-900 dark:text-white text-lg font-bold mb-1" > Kardiologie</p>
+                            <p class="text-slate-500 dark:text-[#9da6b9] text-sm mb-4">
+                                Herzklappenfehler und Diagnostik
+                            </p>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex flex-col gap-2">
+                                <div class="flex justify-between items-center text-xs text-slate-500 dark:text-[#9da6b9]">
+                                    <span>Fortschritt</span>
+                                    <span class="font-bold text-primary">45%</span>
+                                </div>
+                                <div class="h-1.5 w-full bg-slate-100 dark:bg-[#3b4354] rounded-full overflow-hidden">
+                                    <div class="h-full bg-primary rounded-full" style="width: 45%"></div>
+                                </div>
+                            </div>
+                            <button class="w-full bg-primary hover:bg-blue-700 text-white text-sm font-semibold py-2 rounded-lg transition-colors">
+                                Weiterlernen
+                            </button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="text-xl font-bold tracking-tight text-slate-900 dark:text-white mb-6 px-1">Empholene Kurs</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <!-- Recommended Card 1 -->
+              <div class="bg-white dark:bg-[#1c1f27] p-5 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-primary/50 transition-colors cursor-pointer group">
+                <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <mat-icon class="text-primary">smoke_free</mat-icon>
+                </div>
+                <h3 class="text-lg font-bold mb-2">Lungenpathologie</h3>
+                <p class="text-slate-500 dark:text-[#9da6b9] text-sm mb-6 leading-relaxed">
+                  Detaillierte Analyse von Lungenerkrankungen, COPD und modernen
+                  Therapiemethoden.
+                </p>
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-medium px-2 py-1 bg-slate-100 dark:bg-[#282e39] rounded text-slate-600 dark:text-slate-300">12 Lektionen</span>
+                  <mat-icon class="text-primary">arrow_forward</mat-icon>
+                </div>
+              </div>
+              <!-- Recommended Card 2 -->
+              <div class="bg-white dark:bg-[#1c1f27] p-5 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-primary/50 transition-colors cursor-pointer group" >
+                <div
+                  class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform" >
+                  <mat-icon class=" text-primary">psychology</mat-icon>
+                </div>
+                <h3 class="text-lg font-bold mb-2">Neurologie Basics</h3>
+                <p class="text-slate-500 dark:text-[#9da6b9] text-sm mb-6 leading-relaxed">
+                  Grundlagen des Nervensystems und Diagnose häufiger
+                  neurologischer Störungen.
+                </p>
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-medium px-2 py-1 bg-slate-100 dark:bg-[#282e39] rounded text-slate-600 dark:text-slate-300">8 Lektionen</span>
+                  <mat-icon class=" text-primary">arrow_forward</mat-icon>
+                </div>
+              </div>
+
+              <div class="bg-white dark:bg-[#1c1f27] p-5 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-primary/50 transition-colors cursor-pointer group" >
+                <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <mat-icon class=" text-primary">vaccines</mat-icon>
+                </div>
+                <h3 class="text-lg font-bold mb-2">Immunologie</h3>
+                <p  class="text-slate-500 dark:text-[#9da6b9] text-sm mb-6 leading-relaxed" >
+                  Verständnis der adaptiven Immunantwort und moderner
+                  Immuntherapien.
+                </p>
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-medium px-2 py-1 bg-slate-100 dark:bg-[#282e39] rounded text-slate-600 dark:text-slate-300">15 Lektionen</span>
+                  <mat-icon class="text-primary">arrow_forward</mat-icon>
+                </div>
+              </div>
+            </div>
+        </section>
+
+
     </div>
 </section>

@@ -1,14 +1,49 @@
-<section class="sidebar absolute top-0 left-0 md:flex hidden">
-    <aside class="sidebar-container w-64 bg-gray-800 h-screen w-[280px]! text-white p-4 flex flex-col">
-        <div class="logo-container flex items-center gap-2 mb-6">
-            <img src="logo.png" alt="EinfachPatho Logo" class="logo h-full w-18" />
-            <span class="logo-text text-xl font-bold">EinfachPatho</span>
-        </div>
-        <nav class="sidebar-nav flex flex-col gap-4">
-            <a [routerLink]="['/dashboard']" class="sidebar-link p-2 bg-gray-700 rounded hover:bg-gray-600 text-white font-semibold cursor-pointer">Dashboard</a>
-            <a routerLink="/profile" class="sidebar-link p-2 bg-gray-700 rounded hover:bg-gray-600 text-white font-semibold cursor-pointer">Profile</a>
-            <a routerLink="/settings" class="sidebar-link p-2 bg-gray-700 rounded hover:bg-gray-600 text-white font-semibold cursor-pointer">Settings</a>
-            <a routerLink="/help" class="sidebar-link p-2 bg-gray-700 rounded hover:bg-gray-600 text-white font-semibold cursor-pointer">Help</a>
-        </nav>
-    </aside>
-</section>
+<aside class="w-60 border-r border-slate-200 dark:border-slate-800 flex flex-col bg-white dark:bg-[#111318] z-20 h-screen fixed">
+  <div class="p-6">
+    <div class="flex items-center gap-3 mb-10">
+      <div class="bg-primary p-2 rounded-lg">
+        <mat-icon class="text-white">medical_services</mat-icon>
+      </div>
+      <span class="text-xl font-bold tracking-tight">EinfachPatho</span>
+    </div>
+    <nav class="flex flex-col gap-2">
+      <div class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary text-white">
+        <mat-icon class="">dashboard</mat-icon>
+        <p class="text-sm font-medium leading-normal">Dashboard</p>
+      </div>
+      <div
+        class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-[#9da6b9] hover:bg-slate-100 dark:hover:bg-[#282e39] rounded-lg transition-colors cursor-pointer"
+      >
+        <mat-icon class="material-symbols-outlined">quiz</mat-icon>
+        <p class="text-sm font-medium leading-normal">Quiz</p>
+      </div>
+      <div
+        class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-[#9da6b9] hover:bg-slate-100 dark:hover:bg-[#282e39] rounded-lg transition-colors cursor-pointer"
+      >
+        <mat-icon class="material-symbols-outlined">person</mat-icon>
+        <p class="text-sm font-medium leading-normal">Profile</p>
+      </div>
+      <div
+        class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-[#9da6b9] hover:bg-slate-100 dark:hover:bg-[#282e39] rounded-lg transition-colors cursor-pointer"
+      >
+        <mat-icon>settings</mat-icon>
+        <p class="text-sm font-medium leading-normal">Settings</p>
+      </div>
+    </nav>
+  </div>
+  <div class="mt-auto p-6">
+    <div class="flex gap-3 items-center p-3 rounded-xl bg-slate-100 dark:bg-[#1c1f27]">
+      <div
+        class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+        data-alt="Dr Müller profile portrait"
+        style="
+          background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAZHSxJOYbRd10rG7MPNGcTUs-mEVOC8SZCZUaH12nnH334QXi41BJyG1J1s-M5SYxH0PFgbfxYYtGKKdw7BVd6FT5o9kvr_vcF_VJ-LX7QQ7LrXFgMSDyyoO2WXRxGjjXxLUzPsOioWnQA-JI2_9-Uf1t7_VjBC2TAFh2GXJhv2RHMAhlk11DGgF7xPpODzXTpVNZ-AJQb_9o_VSOTg5H4XvqgjUXXqJDuiNbQCRVhKJOOANGxSFIOqhe4yAJle26dmBD-PxK9I1hA');
+        "
+      ></div>
+      <div class="flex flex-col overflow-hidden">
+        <h1 class="text-slate-900 dark:text-white text-sm font-medium truncate">Dr. Müller</h1>
+        <p class="text-slate-500 dark:text-[#9da6b9] text-xs truncate">Premium Mitglied</p>
+      </div>
+    </div>
+  </div>
+</aside>

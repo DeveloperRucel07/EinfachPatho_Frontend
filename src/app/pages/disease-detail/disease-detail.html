@@ -1,93 +1,163 @@
-<div class="disease-detail mr-6">
-@if(disease(); as disease){
-
-    <section class="header flex flex-row items-center mb-2 ">
-        <h1 class="w-100 font-bold text-4xl">
-            ⚕️{{ disease.disease_id}}
-        </h1>
-        <div>
-            <h2 class="font-bold text-3xl text-red-400">{{ disease.name}}</h2>
-            <p class="text-xl">{{disease.category}}</p>
-        </div>
-
-    </section>
-    <hr class="border">
-    <section class="about  flex flex-col md:flex-row gap-10 items-center">
-        <div class="definition  shadow shadow-green-300  p-2 m-2 md:w-[50%] md:h-[160px] w-full h-auto">
-            <h2 class="text-2xl w-[120px] h-auto bg-green-500 text-center font-semi-bold"> Definition </h2>
-            <p class="text-lg">
-                {{disease.durst_data.definition}}
-            </p>
-        </div>
-        <div class="origin shadow shadow-blue-300 p-2 m-2 md:w-[50%] md:h-[160px] w-full h-auto">
-            <h2 class="text-2xl w-[120px] h-auto bg-blue-500 text-center font-semi-bold"> Ursachen </h2>
-            <p class="text-lg">
-                {{disease.durst_data.ursachen.text}}
-            </p>
-            <p class="text-green-500 text-lg">
-                {{disease.durst_data.ursachen.keywords}}
-            </p>
-        </div>
-    </section>
-    
-    <section class="risiko flex flex-col md:flex-row gap-2 items-center">
-        <div class="risks shadow shadow-amber-300 p-2 m-2 md:w-[34%] md:h-[245px] w-full h-auto">
-            <h2 class="text-2xl w-[170px] h-auto bg-amber-500 text-center font-semi-bold">Risikofaktoren </h2>
-            <ul>
-                @for(risiko of disease.durst_data.risikofaktoren; track risiko){
-                    <li class="text-lg text-amber-500 flex items-center"><mat-icon>check_circle</mat-icon>{{risiko}}</li>
-                }
-            </ul>
-
-
-        </div>
-        <div class="symptome shadow shadow-red-300 p-2 m-2 md:w-[33%] md:h-[245px] w-full h-auto">
-            <h2 class="text-2xl w-[120px] h-auto bg-red-500 text-center font-semi-bold"> Symptome </h2>
-            <ul>
-                @for(symptome of disease.durst_data.symptome.list; track symptome){
-                    <li class="text-lg text-red-500 flex items-center"><mat-icon>check</mat-icon>{{symptome}}</li>
-                }
-            </ul>
-            @if(disease.durst_data.symptome.red_flags;as red_flag){
-                <p class="p-1 text-lg">Alarm: {{red_flag}}</p>
-            }
-
-        </div>
-        <div class="therapie shadow shadow-green-500 p-2 m-2 md:w-[33%] md:h-[245px] w-full h-auto">
-            <h2 class="text-2xl w-[120px] h-auto bg-green-500 text-center text-white font-semi-bold"> Therapie </h2>
-            <ul>
-                @for(therapie of disease.durst_data.therapie_massnahmen.immediate_actions; track therapie){
-                    <li class="text-lg text-green-600 flex items-center"><mat-icon>check_box</mat-icon>{{therapie}}</li>
-                }
-            </ul>
-            @if(disease.durst_data.therapie_massnahmen.diagnostic_gold_standard; as standar_diagnose){
-                <p><span class="text-lg">Standard Diagnose:</span> {{standar_diagnose}}</p>
-            }
-             
-        </div>
-    </section>
-    <section class="quiz p-3 m-2">
-        <div class="flex items-center justify-center">
-            <button matFab extended  class="bg-blue-500! text-white! text-xl! ml-4 mr-4" aria-label="quiz icon"> <mat-icon>quiz</mat-icon> Start Quiz</button>
-        </div>
-
-    </section>
-    <section class="footer">
-        <hr>
-        <div class="sources">
-            @for(source of disease.sources; track source){
-                <div class="flex flex-row justify-between items-center text-xl">
-                    <p class="text-xl"><span class="font-bold">Quelle: </span> {{ source.source_name}} </p>
-                    <a href="{{ source.link}}" class="text-blue-500">Mehr daruber lesen🪢</a>
+<section class="dashboard bg-background-light dark:bg-background-dark text-slate-900 dark:text-white mesh-gradient flex min-h-screen">
+    <app-sidebar class=""></app-sidebar>
+    <div class="mx-auto px-8 py-10 ml-60">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+            <div>
+                <div class="flex items-center space-x-3 mb-2">
+                    <mat-icon class=" text-primary text-3xl">biotech</mat-icon>
+                    <h2 class="text-3xl font-bold tracking-tight">IN-2026-001</h2>
                 </div>
-            }
-            <div class="flex items-center justify-end p-2">
-
-                <button matButton="filled" class=""><a href="{{disease.durst_data.therapie_massnahmen.guideline_link}}" class="flex items-center gap-2">Therapie Guideline <mat-icon>arrow_forward</mat-icon></a></button>
+                <h1 class="text-5xl font-extrabold text-rose-500 dark:text-rose-400">
+                    Influenza (Grippe)
+                </h1>
+                <p class="text-slate-500 dark:text-slate-400 mt-2 text-lg">
+                    Infektiologie / Allgemeinmedizin
+                </p>
+            </div>
+            <div class="flex items-center space-x-2 bg-slate-100 dark:bg-slate-800 p-2 rounded-lg">
+                <button class="p-2 hover:bg-white dark:hover:bg-slate-700 rounded shadow-sm transition-all">
+                    <mat-icon class="text-slate-600 dark:text-slate-300">print</mat-icon>
+                </button>
+                <button  class="p-2 hover:bg-white dark:hover:bg-slate-700 rounded shadow-sm transition-all">
+                    <mat-icon  class="material-icons-round text-slate-600 dark:text-slate-300">share</mat-icon>
+                </button>
+            </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div  class="lg:col-span-2 p-6 rounded-2xl bg-white dark:bg-card-dark border border-slate-200 dark:border-slate-800 shadow-sm">
+                <div class="flex items-center space-x-2 mb-4">
+                    <span class="px-3 py-1 bg-blue-500/10 text-blue-500 text-xs font-bold uppercase tracking-widest rounded-full">Definition</span>
+                </div>
+                <p  class="text-slate-600 dark:text-slate-300 leading-relaxed text-lg">
+                    Die Influenza ist eine akut verlaufende, hochansteckende
+                    Virusinfektion der Atemwege, verursacht durch Influenza-A- oder
+                    Influenza-B-Viren.
+                </p>
             </div>
 
+            <div  class="p-6 rounded-2xl bg-white dark:bg-card-dark border border-slate-200 dark:border-slate-800 shadow-sm">
+                <div class="flex items-center space-x-2 mb-4">
+                    <span class="px-3 py-1 bg-indigo-500/10 text-indigo-500 text-xs font-bold uppercase tracking-widest rounded-full">Ursachen</span>
+                </div>
+                <p class="text-slate-600 dark:text-slate-300 mb-4">
+                    Übertragung hauptsächlich durch Tröpfcheninfektion; das Virus
+                    befällt die Schleimhäute der Atemwege.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 rounded-md">
+                        #Influenza-Virus</span>
+                    <span class="text-xs px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 rounded-md">
+                        #Tröpfcheninfektion</span>
+                    <span class="text-xs px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 rounded-md">
+                        #Atemwege</span>
+                </div>
+            </div>
+
+            <div class="p-6 rounded-2xl bg-white dark:bg-card-dark border border-slate-200 dark:border-slate-800 shadow-sm border-l-4 border-l-amber-500">
+                <div class="flex items-center space-x-2 mb-4">
+                    <mat-icon class=" text-amber-500">warning</mat-icon>
+                    <h3 class="font-bold text-slate-800 dark:text-slate-100"> Risikofaktoren</h3>
+                </div>
+                <ul class="space-y-3">
+                    <li class="flex items-center text-slate-600 dark:text-slate-300">
+                        <mat-icon class=" text-amber-500 text-sm mr-2">check_circle</mat-icon>
+                        Hohes Alter
+                    </li>
+                    <li class="flex items-center text-slate-600 dark:text-slate-300">
+                        <mat-icon class=" text-amber-500 text-sm mr-2">check_circle</mat-icon>
+                        Chronische Erkrankungen
+                    </li>
+                    <li class="flex items-center text-slate-600 dark:text-slate-300">
+                        <mat-icon class=" text-amber-500 text-sm mr-2">check_circle</mat-icon>
+                        Immunsuppression
+                    </li>
+                    <li class="flex items-center text-slate-600 dark:text-slate-300">
+                        <mat-icon class=" text-amber-500 text-sm mr-2">check_circle</mat-icon>
+                        Schwangerschaft
+                    </li>
+                    <li class="flex items-center text-slate-600 dark:text-slate-300">
+                        <mat-icon class=" text-amber-500 text-sm mr-2">check_circle</mat-icon>
+                        Fehlende Impfung
+                    </li>
+                </ul>
+            </div>
+
+            <div  class="p-6 rounded-2xl bg-white dark:bg-card-dark border border-slate-200 dark:border-slate-800 shadow-sm border-l-4 border-l-rose-500">
+                <div class="flex items-center space-x-2 mb-4">
+                    <mat-icon class="text-rose-500">coronavirus</mat-icon>
+                    <h3 class="font-bold text-slate-800 dark:text-slate-100"> Symptome</h3>
+                </div>
+                <ul class="space-y-3 mb-6">
+                    <li class="flex items-center text-slate-600 dark:text-slate-300">
+                        <mat-icon class="text-rose-500 text-sm mr-2">bolt</mat-icon>
+                        Plötzlicher Krankheitsbeginn
+                    </li>
+                    <li class="flex items-center text-slate-600 dark:text-slate-300">
+                        <mat-icon class="text-rose-500 text-sm mr-2">thermostat</mat-icon>
+                        Hohes Fieber
+                    </li>
+                    <li class="flex items-center text-slate-600 dark:text-slate-300">
+                        <mat-icon class="text-rose-500 text-sm mr-2">air</mat-icon>
+                        Trockener Husten
+                    </li>
+                    <li class="flex items-center text-slate-600 dark:text-slate-300">
+                        <mat-icon class="text-rose-500 text-sm mr-2">personal_injury</mat-icon>
+                        Kopf- und Gliederschmerzen
+                    </li>
+                    <li class="flex items-center text-slate-600 dark:text-slate-300">
+                        <mat-icon class="text-rose-500 text-sm mr-2">sentiment_very_dissatisfied</mat-icon>
+                        Starke Müdigkeit
+                    </li>
+                </ul>
+                <div class="p-3 bg-rose-500/10 rounded-lg">
+                    <p class="text-xs font-bold text-rose-500 uppercase mb-1">
+                        Alarmzeichen
+                    </p>
+                    <p class="text-sm text-rose-700 dark:text-rose-300">
+                        Atemnot, anhaltend hohes Fieber, Bewusstseinsstörung
+                    </p>
+                </div>
+            </div>
+
+            <div class="p-6 rounded-2xl bg-white dark:bg-card-dark border border-slate-200 dark:border-slate-800 shadow-sm border-l-4 border-l-emerald-500">
+                <div class="flex items-center space-x-2 mb-4">
+                    <mat-icon class="text-emerald-500">healing</mat-icon>
+                    <h3 class="font-bold text-slate-800 dark:text-slate-100"> Therapie</h3>
+                </div>
+                <ul class="space-y-3 mb-6">
+                    <li class="flex items-center text-slate-600 dark:text-slate-300">
+                        <span class="material-icons-round text-emerald-500 text-sm mr-2">task_alt</span>
+                        Bettruhe
+                    </li>
+                    <li class="flex items-center text-slate-600 dark:text-slate-300">
+                        <span class="material-icons-round text-emerald-500 text-sm mr-2">task_alt</span>
+                        Flüssigkeitszufuhr
+                    </li>
+                    <li class="flex items-center text-slate-600 dark:text-slate-300">
+                        <span class="material-icons-round text-emerald-500 text-sm mr-2"  >task_alt</span>
+                        Fiebersenkende Maßnahmen
+                    </li>
+                    <li class="flex items-center text-slate-600 dark:text-slate-300">
+                        <span class="material-icons-round text-emerald-500 text-sm mr-2" >task_alt</span>
+                        Isolation
+                    </li>
+                </ul>
+                <div class="pt-4 border-t border-slate-100 dark:border-slate-700">
+                    <p class="text-sm font-semibold mb-1">Standard Diagnose</p>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 italic">
+                        PCR-Nachweis aus Nasen-/Rachenabstrich
+                    </p>
+                </div>
+            </div>
+        
+        </div>
+        
+        <div class="mt-12 flex justify-center pb-12">
+            <button class="glow-button px-8 py-4 bg-primary text-white font-bold rounded-2xl flex items-center space-x-3 text-lg">
+                <mat-icon class="">quiz</mat-icon>
+                <span>Start Quiz</span>
+            </button>
         </div>
 
-    </section>
-}
-</div>
+    </div>
+</section>

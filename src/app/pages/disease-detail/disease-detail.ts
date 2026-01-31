@@ -3,10 +3,11 @@ import { ActivatedRoute } from '@angular/router';
 import { DiseasesService } from '../../diseases.service';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import { Sidebar } from "../../shared/sidebar/sidebar";
 
 @Component({
   selector: 'app-disease-detail',
-  imports: [MatButtonModule, MatIconModule],
+  imports: [MatButtonModule, MatIconModule, Sidebar],
   templateUrl: './disease-detail.html',
   styleUrl: './disease-detail.scss',
 })
