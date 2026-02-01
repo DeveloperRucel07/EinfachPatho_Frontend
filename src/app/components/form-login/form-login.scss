@@ -1,0 +1,15 @@
+.glow-blue:focus-within {
+  box-shadow:
+    0 0 0 2px rgba(19, 91, 236, 0.2),
+    0 0 8px rgba(19, 91, 236, 0.4);
+}
+
+.bg-medical-pattern {
+  background-image: radial-gradient(circle at 2px 2px, rgba(19, 91, 236, 0.05) 1px, transparent 0);
+  background-size: 32px 32px;
+}
+
+
+.desabled{
+  background-color: gray;
+}

@@ -1,6 +1,5 @@
 import { Component, inject, ChangeDetectionStrategy} from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { Sidebar } from "../sidebar/sidebar";
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
@@ -11,7 +10,7 @@ import { FormSignup } from "../../components/form-signup/form-signup";
 
 @Component({
   selector: 'app-header',
-  imports: [Sidebar, MatButtonModule, MatIconModule, RouterModule, MatDialogModule],
+  imports: [ MatButtonModule, MatIconModule, RouterModule, MatDialogModule],
   templateUrl: './header.html',
   styleUrl: './header.scss',
 })

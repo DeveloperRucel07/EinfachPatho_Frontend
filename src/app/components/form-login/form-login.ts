@@ -1,14 +1,16 @@
 import { Component, signal } from '@angular/core';
+import { RouterOutlet, RouterLink } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButton } from '@angular/material/button';
 import { MatDialogModule} from '@angular/material/dialog';
 import { MatError, MatFormFieldModule } from '@angular/material/form-field';
 import {MatInput} from '@angular/material/input';
 import { MatIcon } from "@angular/material/icon";
+import { Header } from "../../shared/header/header";
 
 @Component({
   selector: 'app-form-login',
-  imports: [MatDialogModule, MatFormFieldModule, MatError, ReactiveFormsModule, MatInput, MatButton, MatIcon],
+  imports: [MatDialogModule, MatFormFieldModule, MatError, ReactiveFormsModule, MatInput, MatButton, MatIcon, Header, RouterLink],
   templateUrl: './form-login.html',
   styleUrl: './form-login.scss',
 })

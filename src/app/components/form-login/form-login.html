@@ -1,52 +1,93 @@
-<div class="max-w-[500px] flex w-full justify-between items-center header-dialog !p-4 ">
-        <h2 mat-dialog-title class="font-bold text-2xl">Sign In</h2>
-        <button  aria-label="Close" class="!text-gray-600" mat-dialog-close>
-            <mat-icon>close</mat-icon>
-        </button>
-    </div>
-    <mat-dialog-content class="max-w-[500px] flex flex-col gap-4 items-center justify-center w-full content-dialog">
-        <form [formGroup]="loginForm" (ngSubmit)="submit()" class="flex flex-col gap-4 w-full">
-            <mat-form-field  class="form-control">
-                <mat-label>Name: </mat-label>
-                <input matInput placeholder="Name" formControlName="name">
-                <button type="button"
-                    matIconButton
-                    matSuffix
-                    >
-                    <mat-icon>person</mat-icon>
-                </button>
-                @if(loginForm.get('name')?.hasError('required')){
-                    <mat-error>
-                        Your Name is required
-                    </mat-error> 
-                }
-                @if(loginForm.get('name')?.hasError('minlength')){
-                    <mat-error>
-                        Name must be at least 3 characters long
-                    </mat-error> 
-                }
-            </mat-form-field>
-            <mat-form-field appearance="fill" class="full-width form-control">
-                <mat-label>Password</mat-label>
-                <input matInput formControlName="password" [type]="type" required>
-                <button matSuffix
-                    (click)="clickEvent($event)"
-                    [attr.aria-pressed]="hide()">
-                    <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
-                </button>
-                
-                @if(loginForm.get('password')?.hasError('required')) {
-                    <mat-error>
-                        Password is required
-                    </mat-error>
-                }
+<div class="relative flex min-h-screen w-full flex-col bg-background-light dark:bg-background-dark bg-medical-pattern">
+  <app-header></app-header>
+  <main class="flex-1 flex items-center justify-center p-6 overflow-hidden">
+    <div
+      class="layout-content-container flex flex-col w-full max-w-[480px] bg-white dark:bg-[#1c1f27] p-8 lg:p-10 rounded-xl shadow-2xl border border-gray-100 dark:border-[#3b4354]"
+    >
 
-            </mat-form-field>
-            <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid" class="font-bold text-2xl">
-                Sign In
-            </button>
-        </form>
-        <div class="text-center mt-4">
-            <p>Don't have an account? <a  mat-button color="accent">Sign Up</a></p>
+      <div class="text-center mb-8">
+        <h1
+          class="text-gray-900 dark:text-white tracking-tight text-[32px] font-bold leading-tight mb-2"
+        >
+          Willkommen zurück
+        </h1>
+        <h2 class="text-gray-500 dark:text-gray-400 text-base font-medium leading-relaxed">
+          Motiviert noch mehr zu lernen?
+        </h2>
+      </div>
+      <form class="flex flex-col gap-6" [formGroup]="loginForm" (ngSubmit)="submit()" >
+
+        <div class="flex flex-col gap-2">
+          <label class="text-gray-700 dark:text-white text-sm font-semibold ml-1">Name</label>
+          <div class="relative glow-blue rounded-lg transition-all">
+            <input
+              matInput
+              class="form-input flex w-full rounded-lg text-gray-900 dark:text-white focus:outline-0 focus:ring-1 focus:ring-primary border border-gray-300 dark:border-[#3b4354] bg-white dark:bg-[#1c1f27] h-14 placeholder:text-gray-400 dark:placeholder:text-[#9da6b9] px-4 text-base font-normal"
+              placeholder="Benutzername eingeben"
+              type="text"
+              formControlName="name"
+            />
+          </div>
         </div>
-    </mat-dialog-content>
+
+        <div class="flex flex-col gap-2">
+          <div class="flex justify-between items-center ml-1 ">
+            <label class="text-gray-700 dark:text-white text-sm font-semibold">Passwort</label>
+            <a class="text-primary text-xs font-semibold hover:underline hidden" href="#"
+              >Passwort vergessen?</a
+            >
+          </div>
+          <div
+            class="relative flex items-stretch rounded-lg glow-blue transition-all border border-gray-300 dark:border-[#3b4354] bg-white dark:bg-[#1c1f27]"
+          >
+            <input
+              matInput
+              class="form-input flex-1 border-none bg-transparent h-14 text-gray-900 dark:text-white focus:outline-0 focus:ring-1 focus:ring-primary placeholder:text-gray-400 dark:placeholder:text-[#9da6b9] px-4 text-base font-normal rounded-l-lg"
+              placeholder="Password eingeben"
+              [type]="type"
+              formControlName="password"
+            />
+            <button
+              class="text-gray-400 dark:text-[#9da6b9] flex items-center justify-center px-4 hover:text-primary transition-colors"
+              type="button"
+              (click)="clickEvent($event)"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide()"
+            >
+              <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            
+          </div>
+        </div>
+      
+        <button
+          class="w-full flex items-center justify-center rounded-lg h-14 bg-primary text-white text-lg font-bold tracking-wide hover:bg-primary/90 transition-all shadow-lg shadow-primary/30 mt-2 "
+          type="submit"
+          [class.desabled] = 'loginForm.invalid'
+          [disabled]="loginForm.invalid" 
+        >
+          Einloggen
+        </button>
+      </form>
+
+      <div class="mt-8 text-center">
+        <p class="text-gray-500 dark:text-gray-400 text-sm">
+          Noch kein Konto?
+          <a class="text-primary font-bold hover:underline ml-1" routerLink="/signup">Registrieren</a>
+        </p>
+      </div>
+    </div>
+  </main>
+  <div class="fixed bottom-0 right-0 w-96 h-96 opacity-10 pointer-events-none overflow-hidden">
+    <svg
+      class="w-full h-full text-primary fill-current"
+      viewbox="0 0 200 200"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M44.7,-76.4C58.8,-69.2,71.8,-59.1,79.6,-45.8C87.4,-32.5,90.1,-16.3,88.5,-0.9C86.9,14.4,81,28.8,72.4,41.2C63.8,53.7,52.5,64.2,39.4,71.2C26.3,78.2,13.1,81.7,-0.7,82.9C-14.5,84.1,-29,82.9,-42.4,76.5C-55.8,70.1,-68.1,58.4,-76.3,44.7C-84.5,31,-88.6,15.5,-87.7,0.5C-86.8,-14.5,-80.9,-29,-71.7,-41C-62.5,-53.1,-50,-62.7,-36.4,-70.3C-22.8,-77.9,-11.4,-83.4,2.3,-87.4C16,-91.4,30.6,-83.6,44.7,-76.4Z"
+        transform="translate(100 100)"
+      ></path>
+    </svg>
+  </div>
+</div>
