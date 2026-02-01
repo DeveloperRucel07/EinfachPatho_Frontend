@@ -1,20 +1,21 @@
+
 import { Component, signal } from '@angular/core';
-import { RouterOutlet, RouterLink } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { MatButton } from '@angular/material/button';
 import { MatDialogModule} from '@angular/material/dialog';
-import { MatError, MatFormFieldModule } from '@angular/material/form-field';
-import {MatInput} from '@angular/material/input';
-import { MatIcon } from "@angular/material/icon";
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import { MatIconModule } from "@angular/material/icon";
 import { Header } from "../../shared/header/header";
 
 @Component({
-  selector: 'app-form-login',
-  imports: [MatDialogModule, MatFormFieldModule, MatError, ReactiveFormsModule, MatInput, MatButton, MatIcon, Header, RouterLink],
-  templateUrl: './form-login.html',
-  styleUrl: './form-login.scss',
+  standalone: true,
+  selector: 'app-login',
+  imports: [MatDialogModule, MatFormFieldModule, ReactiveFormsModule, MatInputModule, MatIconModule, Header, RouterLink],
+  templateUrl: './login.html',
+  styleUrl: './login.scss',
 })
-export class FormLogin {
+export class Login {
   type:string = 'password';
   hide = signal(true);
 
@@ -33,7 +34,9 @@ export class FormLogin {
       this.loginForm.markAllAsTouched();
       return;
     }
-    console.log(this.loginForm.value);
+    const username = this.loginForm.get('name')
+    const password = this.loginForm.get('password')
+    console.log(username, password);
   }
 
   clickEvent(event: MouseEvent) {
@@ -47,4 +50,5 @@ export class FormLogin {
   }
 
 }
+
 

@@ -1,6 +1,6 @@
-<div class="relative flex min-h-screen w-full flex-col bg-background-light dark:bg-background-dark bg-medical-pattern">
+<div class="relative flex min-h-screen w-full flex-col bg-background-light dark:bg-background-dark bg-medical-pattern ">
   <app-header></app-header>
-  <main class="flex-1 flex items-center justify-center p-6 overflow-hidden">
+  <main class="flex-1 flex items-center justify-center p-6 overflow-hidden mesh-gradient">
     <div
       class="layout-content-container flex flex-col w-full max-w-[480px] bg-white dark:bg-[#1c1f27] p-8 lg:p-10 rounded-xl shadow-2xl border border-gray-100 dark:border-[#3b4354]"
     >
@@ -59,21 +59,24 @@
             
           </div>
         </div>
-      
-        <button
-          class="w-full flex items-center justify-center rounded-lg h-14 bg-primary text-white text-lg font-bold tracking-wide hover:bg-primary/90 transition-all shadow-lg shadow-primary/30 mt-2 "
-          type="submit"
-          [class.desabled] = 'loginForm.invalid'
-          [disabled]="loginForm.invalid" 
-        >
-          Einloggen
-        </button>
+
+        <div class="pt-4">
+            <button
+              class="w-full h-14 bg-emerald-glow emerald-button-glow text-white font-bold text-lg rounded-lg hover:brightness-110 active:scale-[0.98] transition-all flex items-center justify-center gap-2"
+              type="submit"
+              [class.desabled]="loginForm.invalid"
+              [disabled]="loginForm.invalid"
+            >
+              <span>Einloggen</span>
+              <mat-icon class="">login</mat-icon>
+            </button>
+          </div>
       </form>
 
       <div class="mt-8 text-center">
         <p class="text-gray-500 dark:text-gray-400 text-sm">
           Noch kein Konto?
-          <a class="text-primary font-bold hover:underline ml-1" routerLink="/signup">Registrieren</a>
+          <a class="text-primary font-bold hover:underline ml-1" routerLink="/registration">Registrieren</a>
         </p>
       </div>
     </div>
@@ -91,3 +94,4 @@
     </svg>
   </div>
 </div>
+

@@ -12,11 +12,11 @@ export const routes: Routes = [
     },
     {
         path: 'login',
-        loadComponent: () => import('./components/form-login/form-login').then(m=>m.FormLogin)
+        loadComponent: () => import('./pages/login/login').then(m=>m.Login)
     },
     {
-        path: 'signup',
-        loadComponent: () => import('./components/form-signup/form-signup').then(m => m.FormSignup)
+        path: 'registration',
+        loadComponent: () => import('./pages/registration/registration').then(m=>m.Registration)
     },
     {
         path: 'dashboard',
@@ -26,5 +26,4 @@ export const routes: Routes = [
         path: 'disease/:id',
         loadComponent: () => import('./pages/disease-detail/disease-detail').then(m => m.DiseaseDetail)
     }
-
 ];
