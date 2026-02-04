@@ -1,13 +1,15 @@
 
+import { timer } from 'rxjs';
 import { Component, signal } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from "@angular/material/icon";
 import { Header } from "../../shared/header/header";
-import { AuthService, LoginPayload } from '../../services/auth-service';
+import { AuthService} from '../../services/auth-service';
+import { LoginPayload, LoginResponse } from '../../models/auth-models';
 
 @Component({
   standalone: true,
@@ -16,11 +18,11 @@ import { AuthService, LoginPayload } from '../../services/auth-service';
   templateUrl: './login.html',
   styleUrl: './login.scss',
 })
+
 export class Login {
   type: string = 'password';
   hide = signal(true);
-
-  
+  errorMessage = '';
 
   loginForm = new FormGroup({
     username: new FormControl<string>('', [
@@ -33,8 +35,15 @@ export class Login {
     ])
   });
   
-  constructor(private auth: AuthService) {
+  constructor(private auth: AuthService, private router: Router) {
     
+  }
+
+  showError(message: string) {
+    this.errorMessage = message;
+    timer(4000).subscribe(() => {
+      this.errorMessage = '';
+    });
   }
 
   submit() {
@@ -48,9 +57,20 @@ export class Login {
       password : this.loginForm.get('password')!.value || '',
     };
 
+
     this.auth.login(loginData).subscribe({
-      next: () => console.log('Login success'),
-      error: err => console.error(err)
+      next: (response: LoginResponse) => {
+        this.router.navigate(['/dashboard']);
+      },
+      error: (err) => {
+        if (err.status === 0) {
+          this.showError('Server is not reachable. Please try again later.');
+        } else if (err.status === 400) {
+          this.showError('Invalid username or password.');
+        } else {
+          this.showError('Something went wrong.');
+        }
+      }
     });
   
   }

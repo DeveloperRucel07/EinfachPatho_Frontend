@@ -16,6 +16,12 @@
         </h2>
       </div>
       <form class="flex flex-col gap-6" [formGroup]="loginForm" (ngSubmit)="submit()" >
+        @if(errorMessage.length > 2){
+          <div class="flex bg-error h-10 text-white transition-opacity duration-300 items-center justify-center text-lg" [class.opacity-0]="!errorMessage">
+            {{ errorMessage }}
+          </div>
+        }
+        
 
         <div class="flex flex-col gap-2">
           <label class="text-gray-700 dark:text-white text-sm font-semibold ml-1">Name</label>

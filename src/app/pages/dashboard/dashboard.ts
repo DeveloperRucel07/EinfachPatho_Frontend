@@ -4,6 +4,9 @@ import { DiseaseCard } from "../../components/disease-card/disease-card";
 import { DB } from '../../db';
 import { Sidebar } from "../../shared/sidebar/sidebar";
 import { MatIcon } from "@angular/material/icon";
+import { AuthService } from '../../services/auth-service';
+import { User } from '../../models/auth-models';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-dashboard',
   imports: [Sidebar, MatIcon],
@@ -12,6 +15,14 @@ import { MatIcon } from "@angular/material/icon";
 })
 export class Dashboard {
   diseases = DB;
-  
+  user: User | null = null
+
+  constructor(private auth: AuthService) {
+    this.auth.user$.subscribe(user => {
+      this.user = user;
+    });
+  }
+
+
 
 }
