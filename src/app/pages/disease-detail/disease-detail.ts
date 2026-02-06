@@ -16,6 +16,10 @@ export class DiseaseDetail {
   private diseaseService = inject(DiseasesService);
   diseaseId = this.route.snapshot.paramMap.get('id') || '';
 
+  print() {
+      window.print();
+  }
+
   disease = computed(() =>
     this.diseaseService.diseases()
       .find(d => d.disease_id === this.diseaseId)

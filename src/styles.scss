@@ -11,11 +11,13 @@
 @theme {
   --color-primary: #135bec;
   --color-accent: #10b981;
-  --color-background-light: #f6f6f8;
+  --color-slate: #1e293b;
+  --color-background: #f6f6f8;
   --color-background-dark: #0a0a0b;
   --color-accent-emerald: #10b981;
   --color-emerald-glow: #10b981;
   --color-error: #ff3333;
+  --card-dark: #1e293b;
   --font-display: "Manrope", sans-serif;
   
   --radius-DEFAULT: 0.5rem;
@@ -23,6 +25,16 @@
   --radius-xl: 1.5rem;
 }
 
+html.dark {
+  --color-background: #0a0a0b;
+  --color-white: #ffffff;
+  --color-primary: #135bec;
+  --color-accent: #10b981;
+  --card-dark: #1e293b;
+  --color-accent-emerald: #10b981;
+  --color-emerald-glow: #10b981;
+  --color-slate: #1e293b;
+}
 
 
 html {
@@ -37,7 +49,7 @@ html {
 }
 
 body {
-  color-scheme: dark;
+  color-scheme: light dark;
 
   background-color: var(--mat-sys-surface);
   color: var(--mat-sys-on-surface);
@@ -59,6 +71,30 @@ body {
     color: white !important;
   }
 }
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  #print-area,
+  #print-area * {
+    visibility: visible;
+  }
+
+  #print-area {
+    position: absolute;
+    left: -250px;
+    right: 0;
+    top: 0;
+    width: 100%;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+}
+
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

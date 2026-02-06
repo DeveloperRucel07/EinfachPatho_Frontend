@@ -1,196 +1,244 @@
 export const DB = [
 
-    /* ===================================================== */
-    /* ===================== INFLUENZA ===================== */
-    /* ===================================================== */
-
     {
-        "disease_id": "IN-2026-001",
-        "name": "Influenza (Grippe)",
-        "category": "Infektiologie / Allgemeinmedizin",
+        "disease_id": "AP-2026-004",
+        "name": "Apoplex (Schlaganfall)",
+        "image": "https://googleusercontent.com/image_generation_content/3",
+        "category": "Notfallmedizin / Neurologie",
         "durst_data": {
-            "definition": "Die Influenza ist eine akut verlaufende, hochansteckende Virusinfektion der Atemwege, verursacht durch Influenza-A- oder Influenza-B-Viren.",
+            "definition": "Ein Apoplex ist eine schlagartig auftretende Durchblutungsstörung im Gehirn (ischämisch, ca. 80 %) oder eine intrazerebrale Blutung (hämorrhagisch, ca. 20 %), die zu einem regionalen Mangel an Sauerstoff und Nährstoffen sowie konsekutiven neurologischen Ausfällen führt.",
             "ursachen": {
-                "text": "Übertragung hauptsächlich durch Tröpfcheninfektion; das Virus befällt die Schleimhäute der Atemwege.",
-                "keywords": ["Influenza-Virus", "Tröpfcheninfektion", "Atemwege"]
+                "text": "Häufigste Ursache ist der Verschluss einer Hirnarterie durch Thromboembolien (oft bei Vorhofflimmern) oder lokale Arteriosklerose. Seltener sind Gefäßrupturen bei Hypertonie.",
+                "keywords": [
+                    "Ischämie",
+                    "Thromboembolie",
+                    "Arteriosklerose",
+                    "Vorhofflimmern"
+                ]
             },
             "risikofaktoren": [
-                "Hohes Alter",
-                "Chronische Erkrankungen",
-                "Immunsuppression",
-                "Schwangerschaft",
-                "Fehlende Impfung"
-            ],
-            "symptome": {
-                "list": [
-                    "Plötzlicher Krankheitsbeginn",
-                    "Hohes Fieber",
-                    "Trockener Husten",
-                    "Kopf- und Gliederschmerzen",
-                    "Starke Müdigkeit"
-                ],
-                "red_flags": "Atemnot, anhaltend hohes Fieber, Bewusstseinsstörung"
-            },
-            "therapie_massnahmen": {
-                "immediate_actions": [
-                    "Bettruhe",
-                    "Flüssigkeitszufuhr",
-                    "Fiebersenkende Maßnahmen",
-                    "Isolation"
-                ],
-                "diagnostic_gold_standard": "PCR-Nachweis aus Nasen-/Rachenabstrich",
-                "guideline_link": "https://register.awmf.org/de/leitlinien/detail/113-001"
-            }
-        },
-        "quiz": [
-            { "id": 1, "question": "Wie wird Influenza hauptsächlich übertragen?", "options": ["Kontaktinfektion", "Tröpfcheninfektion", "Blutkontakt", "Lebensmittel"], "correct_index": 1, "explanation": "Influenza wird vor allem durch Husten, Niesen und Sprechen übertragen." },
-            { "id": 2, "question": "Welcher Erreger verursacht die echte Grippe?", "options": ["Bakterien", "Pilze", "Influenzaviren", "Parasiten"], "correct_index": 2, "explanation": "Die Influenza wird durch Influenza-A- oder B-Viren ausgelöst." },
-            { "id": 3, "question": "Was ist typisch für den Beginn einer Influenza?", "options": ["Langsamer Beginn", "Plötzlicher Beginn", "Nur Durchfall", "Nur Hautausschlag"], "correct_index": 1, "explanation": "Die Influenza beginnt meist abrupt mit Fieber und starkem Krankheitsgefühl." },
-            { "id": 4, "question": "Welche Personengruppe hat ein besonders hohes Risiko?", "options": ["Jugendliche", "Sportler", "Schwangere", "Gesunde Erwachsene"], "correct_index": 2, "explanation": "Schwangere und chronisch Kranke haben ein erhöhtes Komplikationsrisiko." },
-            { "id": 5, "question": "Welche Maßnahme schützt am besten?", "options": ["Antibiotika", "Impfung", "Vitamin C", "Isolierung nur bei Symptomen"], "correct_index": 1, "explanation": "Die jährliche Grippeimpfung ist der effektivste Schutz." }
-        ],
-        "sources": [
-            { "source_name": "RKI Influenza", "link": "https://www.rki.de" }
-        ]
-    },
-
-    /* ===================== DIABETES TYP 2 ===================== */
-
-    {
-        "disease_id": "DM-2026-002",
-        "name": "Diabetes mellitus Typ 2",
-        "category": "Endokrinologie / Innere Medizin",
-        "durst_data": {
-            "definition": "Chronische Stoffwechselerkrankung mit Insulinresistenz und dauerhaft erhöhtem Blutzucker.",
-            "ursachen": {
-                "text": "Kombination aus genetischer Veranlagung, Insulinresistenz und Lebensstilfaktoren.",
-                "keywords": ["Insulinresistenz", "Hyperglykämie", "Stoffwechsel"]
-            },
-            "risikofaktoren": [
-                "Adipositas",
-                "Bewegungsmangel",
-                "Ungesunde Ernährung",
-                "Genetische Prädisposition",
+                "Arterielle Hypertonie (Bluthochdruck) - wichtigster Faktor",
+                "Vorhofflimmern (Herzrhythmusstörungen)",
+                "Diabetes mellitus",
+                "Rauchen und Bewegungsmangel",
                 "Hohes Alter"
             ],
             "symptome": {
                 "list": [
-                    "Vermehrter Durst",
-                    "Häufiges Wasserlassen",
-                    "Müdigkeit",
-                    "Sehstörungen",
-                    "Infektanfälligkeit"
+                    "Plötzliche Hemiparese (halbseitige Lähmung) oder Taubheitsgefühl",
+                    "Aphasie (Sprachstörungen) oder Dysarthrie (Sprechstörungen)",
+                    "Fazialisparese (hängender Mundwinkel)",
+                    "Visusstörungen (Doppelbilder, Gesichtsfeldausfälle)",
+                    "Schwindel und Gangunsicherheit"
                 ],
-                "red_flags": "Bewusstseinsstörung, Azetongeruch, sehr hohe Blutzuckerwerte"
+                "red_flags": "FAST-Schema positiv (Face, Arms, Speech, Time), Bewusstseinsverlust, stärkste Vernichtungskopfschmerzen (Hinweis auf Blutung)"
             },
             "therapie_massnahmen": {
                 "immediate_actions": [
-                    "Blutzuckermessung",
-                    "Ernährungsanpassung",
-                    "Bewegungstherapie",
-                    "Medikamentöse Therapie"
+                    "Sofortiger Notruf (112) - 'Time is Brain'",
+                    "Oberkörperhochlagerung um 30° (zur Senkung des Hirndrucks, sofern kreislaufstabil)",
+                    "Nüchtern lassen (Aspirationsgefahr bei Schluckstörungen!)",
+                    "Engmaschige Überwachung (Bewusstsein, Blutdruck, Blutzucker)",
+                    "Beruhigende Betreuung und Schutz gelähmter Körperteile"
                 ],
-                "diagnostic_gold_standard": "HbA1c und Nüchternblutzucker",
-                "guideline_link": "https://register.awmf.org/de/leitlinien/detail/057-001"
+                "diagnostic_gold_standard": "Cranial-CT (CCT) zum Ausschluss einer Blutung vor Lyse-Therapie",
+                "guideline_link": "https://register.awmf.org/de/leitlinien/detail/030-046"
             }
         },
         "quiz": [
-            { "id": 1, "question": "Was ist die Hauptursache von Typ-2-Diabetes?", "options": ["Insulinmangel", "Autoimmunerkrankung", "Insulinresistenz", "Infektion"], "correct_index": 2, "explanation": "Der Körper reagiert nicht mehr ausreichend auf Insulin." },
-            { "id": 2, "question": "Welcher Wert zeigt die Langzeiteinstellung?", "options": ["CRP", "HbA1c", "Kalium", "Cholesterin"], "correct_index": 1, "explanation": "HbA1c spiegelt den mittleren Blutzucker der letzten Wochen wider." },
-            { "id": 3, "question": "Welches Symptom ist typisch?", "options": ["Durst", "Husten", "Fieber", "Hautausschlag"], "correct_index": 0, "explanation": "Polydipsie ist ein klassisches Diabetes-Symptom." },
-            { "id": 4, "question": "Wichtigste nicht-medikamentöse Therapie?", "options": ["Bettruhe", "Bewegung", "Sauerstoff", "Antibiotika"], "correct_index": 1, "explanation": "Bewegung verbessert die Insulinempfindlichkeit." },
-            { "id": 5, "question": "Welche Folgeerkrankung ist typisch?", "options": ["Demenz", "Retinopathie", "Asthma", "Epilepsie"], "correct_index": 1, "explanation": "Langfristig kann es zu Gefäß- und Augenschäden kommen." }
+            {
+                "id": 1,
+                "question": "Wofür steht das 'S' im klinisch angewandten FAST-Schema?",
+                "options": [
+                    "Schmerz (Pain)",
+                    "Sprache (Speech)",
+                    "Schwindel (Dizziness)",
+                    "Sehstörung (Vision)"
+                ],
+                "correct_index": 1,
+                "explanation": "FAST steht für Face (Gesicht), Arms (Arme), Speech (Sprache) und Time (Zeit). Es dient der schnellen Identifikation von Schlaganfallsymptomen."
+            },
+            {
+                "id": 2,
+                "question": "Warum dürfen Patienten mit Schlaganfallverdacht bis zur ärztlichen Klärung nichts essen oder trinken?",
+                "options": [
+                    "Wegen der anstehenden Operation.",
+                    "Um den Blutdruck nicht zu erhöhen.",
+                    "Wegen der hohen Aspirationsgefahr durch mögliche Schluckstörungen (Dysphagie).",
+                    "Damit die Labortests nicht verfälscht werden."
+                ],
+                "correct_index": 2,
+                "explanation": "Viele Schlaganfallpatienten leiden unter Schluckstörungen. Eine Aspiration kann eine lebensgefährliche Pneumonie auslösen."
+            },
+            {
+                "id": 3,
+                "question": "Welches ist die wichtigste pflegerische Maßnahme zur Senkung des intrakraniellen Drucks?",
+                "options": [
+                    "Flachlagerung ohne Kissen.",
+                    "Oberkörperhochlagerung um ca. 30 Grad.",
+                    "Beine hochlagern (Schocklagerung).",
+                    "Lagerung auf der betroffenen Seite."
+                ],
+                "correct_index": 1,
+                "explanation": "Die 30°-Oberkörperhochlagerung verbessert den venösen Abfluss aus dem Gehirn und reduziert so den Hirndruck."
+            },
+            {
+                "id": 4,
+                "question": "Innerhalb welches Zeitfensters ist eine systemische Thrombolyse meist effektiv?",
+                "options": [
+                    "Innerhalb der ersten 4,5 Stunden nach Symptombeginn.",
+                    "Nur in den ersten 30 Minuten.",
+                    "Bis zu 24 Stunden nach Symptombeginn.",
+                    "Es gibt kein Zeitlimit."
+                ],
+                "correct_index": 0,
+                "explanation": "Die systemische Lyse zur Auflösung des Gerinnsels ist leitliniengemäß meist bis zu 4,5 Stunden nach dem Symptombeginn wirksam."
+            },
+            {
+                "id": 5,
+                "question": "Welche Herzrhythmusstörung ist ein Hauptrisikofaktor für ischämische Schlaganfälle?",
+                "options": [
+                    "Sinusbradykardie",
+                    "Extrasystolen",
+                    "Vorhofflimmern",
+                    "Rechtsschenkelblock"
+                ],
+                "correct_index": 2,
+                "explanation": "Bei Vorhofflimmern können sich Thromben im Herzen bilden, die ins Gehirn wandern und dort Gefäße verschließen."
+            }
         ],
         "sources": [
-            { "source_name": "Deutsche Diabetes Gesellschaft", "link": "https://www.ddg.info" }
+            {
+                "source_name": "AWMF S2e-Leitlinie Akuttherapie des ischämischen Schlaganfalls",
+                "link": "https://register.awmf.org/de/leitlinien/detail/030-046"
+            },
+            {
+                "source_name": "Pschyrembel Online - Apoplex",
+                "link": "https://www.pschyrembel.de/Apoplex/K02G8"
+            },
+            {
+                "source_name": "I care Pflege - Thieme Verlag",
+                "link": "https://www.thieme.de/de/pflege/i-care-pflege-150352.htm"
+            }
         ]
     },
-
-    /* ===================== ASTHMA ===================== */
-
     {
-        "disease_id": "AS-2026-003",
-        "name": "Asthma bronchiale",
-        "category": "Pneumologie",
+        "disease_id": "MI-2026-005",
+        "name": "Myokardinfarkt (Herzinfarkt)",
+        "image": "https://googleusercontent.com/image_generation_content/4",
+        "category": "Notfallmedizin / Kardiologie",
         "durst_data": {
-            "definition": "Chronisch-entzündliche Erkrankung der Atemwege mit anfallsweiser Atemnot.",
+            "definition": "Ein Myokardinfarkt ist das Absterben (Nekrose) von Herzmuskelgewebe infolge einer kritischen Minderdurchblutung (Ischämie). Dies wird meist durch einen akuten Verschluss einer Koronararterie (Herzkranzgefäß) verursacht.",
             "ursachen": {
-                "text": "Überempfindlichkeit der Bronchien gegenüber Reizen.",
-                "keywords": ["Bronchokonstriktion", "Entzündung", "Allergie"]
+                "text": "Hauptursache ist eine Plaque-Ruptur in einem arteriosklerotisch veränderten Herzkranzgefäß, die zur sofortigen Thrombusbildung führt. Dadurch wird die Sauerstoffversorgung des nachfolgenden Herzmuskelareals unterbrochen.",
+                "keywords": [
+                    "Plaque-Ruptur",
+                    "Koronarthrombose",
+                    "Ischämie",
+                    "Nekrose"
+                ]
             },
-            "risikofaktoren": ["Allergien", "Genetik", "Rauchen", "Luftverschmutzung"],
+            "risikofaktoren": [
+                "Arterielle Hypertonie (Bluthochdruck)",
+                "Diabetes mellitus",
+                "Hypercholesterinämie (hohe Blutfettwerte)",
+                "Nikotinabusus (Rauchen)",
+                "Positive Familienanamnese (genetische Veranlagung)"
+            ],
             "symptome": {
-                "list": ["Atemnot", "Pfeifende Atmung", "Husten", "Brustenge"],
-                "red_flags": "Zyanose, Erschöpfung, Sprechunfähigkeit"
+                "list": [
+                    "Akuter, retrosternaler Schmerz (hinter dem Brustbein)",
+                    "Ausstrahlung in den linken Arm, Kiefer, Hals oder Oberbauch",
+                    "Massives Engegefühl ('Elefant auf der Brust')",
+                    "Kaltschweißigkeit und blasse Haut (Schocksymptomatik)",
+                    "Todesangst"
+                ],
+                "red_flags": "Stummer Infarkt (schmerzfrei, oft bei Diabetikern), kardiogener Schock, lebensgefährliche Herzrhythmusstörungen (Kammerflimmern)."
             },
             "therapie_massnahmen": {
-                "immediate_actions": ["Inhalation", "Aufrechte Lagerung", "Notfallplan"],
-                "diagnostic_gold_standard": "Spirometrie",
-                "guideline_link": "https://register.awmf.org/de/leitlinien/detail/020-009"
+                "immediate_actions": [
+                    "Sofortiger Notruf (112) absetzen",
+                    "Herzbetttlagerung (Oberkörper hoch, Beine tief) zur Entlastung des Herzens",
+                    "Absolute körperliche Ruhe (keine unnötige Bewegung)",
+                    "Sauerstoffgabe (bei Sättigung < 90%)",
+                    "Psychische Betreuung ('Keep Calm') zur Senkung des Adrenalinspiegels"
+                ],
+                "diagnostic_gold_standard": "12-Kanal-EKG (Nachweis von ST-Hebungen) und Labor (Troponin-Anstieg)",
+                "guideline_link": "https://register.awmf.org/de/leitlinien/detail/030-120"
             }
         },
         "quiz": [
-            { "id": 1, "question": "Was verursacht die Atemnot?", "options": ["Alveolenkollaps", "Bronchienverengung", "Herzstillstand", "Infektion"], "correct_index": 1, "explanation": "Die Bronchien verengen sich krampfartig." },
-            { "id": 2, "question": "Typisches Atemgeräusch?", "options": ["Rasseln", "Pfeifen", "Gurgeln", "Klicken"], "correct_index": 1, "explanation": "Pfeifende Atmung ist typisch." },
-            { "id": 3, "question": "Wichtigste Akutmedikation?", "options": ["Antibiotika", "Kortison", "Beta-2-Sympathomimetika", "Opiate"], "correct_index": 2, "explanation": "Sie erweitern schnell die Bronchien." },
-            { "id": 4, "question": "Wichtige Lagerung?", "options": ["Flach", "Trendelenburg", "Aufrecht", "Seitenlage"], "correct_index": 2, "explanation": "Aufrechte Haltung erleichtert die Atmung." },
-            { "id": 5, "question": "Asthma ist meist…", "options": ["heilbar", "infektiös", "chronisch", "einmalig"], "correct_index": 2, "explanation": "Asthma ist eine chronische Erkrankung." }
-        ],
-        "sources": [{ "source_name": "AWMF Asthma Leitlinie", "link": "https://register.awmf.org" }]
-    },
-
-    /* ===================== HYPERTONIE ===================== */
-
-    {
-        "disease_id": "HT-2026-004",
-        "name": "Arterielle Hypertonie",
-        "category": "Kardiologie",
-        "durst_data": {
-            "definition": "Chronisch erhöhter arterieller Blutdruck.",
-            "ursachen": { "text": "Meist multifaktoriell.", "keywords": ["Blutdruck", "Gefäßwiderstand"] },
-            "risikofaktoren": ["Adipositas", "Stress", "Salz", "Bewegungsmangel"],
-            "symptome": { "list": ["Kopfschmerz", "Schwindel", "Nasenbluten"], "red_flags": "Hypertensive Krise" },
-            "therapie_massnahmen": {
-                "immediate_actions": ["Blutdruckkontrolle", "Lebensstiländerung", "Medikamente"],
-                "diagnostic_gold_standard": "Langzeitmessung",
-                "guideline_link": "https://register.awmf.org"
+            {
+                "id": 1,
+                "question": "Welche Lagerung ist bei einem kreislaufstabilen Infarktpatienten zur Herzentlastung indiziert?",
+                "options": [
+                    "Flachlagerung ohne Kopfkissen",
+                    "Schocklagerung (Beine hoch)",
+                    "Oberkörperhochlagerung (Herzbetttlagerung)",
+                    "Stabile Seitenlage"
+                ],
+                "correct_index": 2,
+                "explanation": "Durch das Hochlagern des Oberkörpers bei gleichzeitig tiefen Beinen wird der venöse Rückstrom zum Herzen vermindert (Vorlastsenkung), was das Herz entlastet."
+            },
+            {
+                "id": 2,
+                "question": "Warum leiden Menschen mit Diabetes mellitus häufig unter einem 'stummen' Infarkt?",
+                "options": [
+                    "Weil ihr Schmerzempfinden durch Zucker betäubt ist.",
+                    "Aufgrund einer diabetischen Polyneuropathie (Nervenschädigung).",
+                    "Weil das Herz bei Diabetikern weniger Nerven hat.",
+                    "Da sie Schmerzmittel gegen den Diabetes einnehmen."
+                ],
+                "correct_index": 1,
+                "explanation": "Die diabetische Neuropathie schädigt die autonomen Nerven, die Schmerzsignale vom Herzen zum Gehirn leiten. Dadurch fehlt das Warnsignal Brustschmerz."
+            },
+            {
+                "id": 3,
+                "question": "Welcher Laborwert gilt als hochspezifisch für den Nachweis einer Herzmuskelschädigung?",
+                "options": [
+                    "Blutzucker",
+                    "Leukozyten",
+                    "Kreatinin",
+                    "Troponin"
+                ],
+                "correct_index": 3,
+                "explanation": "Troponin ist ein Protein des Herzmuskels, das bei einer Zellschädigung (Infarkt) ins Blut freigesetzt wird und dort präzise gemessen werden kann."
+            },
+            {
+                "id": 4,
+                "question": "Was ist das primäre Ziel der 'menschlichen' Betreuung (Beruhigung) beim Infarkt?",
+                "options": [
+                    "Den Patienten vom Telefonieren abzuhalten.",
+                    "Senkung des Adrenalinspiegels zur Reduktion des Sauerstoffverbrauchs.",
+                    "Zeitgewinn, bis der Notarzt eintrifft.",
+                    "Vermeidung von lautem Geschrei auf der Station."
+                ],
+                "correct_index": 1,
+                "explanation": "Angst schüttet Stresshormone aus, die den Puls und Blutdruck erhöhen. Das steigert den Sauerstoffbedarf des Herzens und vergrößert das Infarktareal."
+            },
+            {
+                "id": 5,
+                "question": "Wie lautet der medizinische Leitsatz für die Dringlichkeit bei einem Herzinfarkt?",
+                "options": [
+                    "Time is Brain",
+                    "Wait and See",
+                    "Time is Muscle",
+                    "Check and Go"
+                ],
+                "correct_index": 2,
+                "explanation": "'Time is Muscle' bedeutet: Je schneller das Gefäß wieder eröffnet wird (z.B. Herzkatheter), desto mehr Herzmuskelgewebe kann gerettet werden."
             }
-        },
-        "quiz": [
-            { "id": 1, "question": "Ab wann Hypertonie?", "options": ["120/80", "130/85", "140/90", "100/60"], "correct_index": 2, "explanation": "≥140/90 mmHg." },
-            { "id": 2, "question": "Welches Organ ist besonders gefährdet?", "options": ["Haut", "Gehirn", "Milz", "Magen"], "correct_index": 1, "explanation": "Schlaganfallrisiko steigt stark." },
-            { "id": 3, "question": "Wichtigste Prävention?", "options": ["Rauchen", "Bewegung", "Salz", "Alkohol"], "correct_index": 1, "explanation": "Bewegung senkt den Blutdruck." },
-            { "id": 4, "question": "Hypertonie ist oft…", "options": ["schmerzhaft", "symptomlos", "fieberhaft", "infektiös"], "correct_index": 1, "explanation": "Viele Betroffene merken nichts." },
-            { "id": 5, "question": "Langzeitfolge?", "options": ["Asthma", "Nierenversagen", "Migräne", "Anämie"], "correct_index": 1, "explanation": "Gefäßschäden betreffen auch die Nieren." }
         ],
-        "sources": [{ "source_name": "Deutsche Hochdruckliga", "link": "https://www.hochdruckliga.de" }]
-    },
-
-    /* ===================== PNEUMONIE ===================== */
-
-    {
-        "disease_id": "PN-2026-005",
-        "name": "Pneumonie",
-        "category": "Pneumologie / Infektiologie",
-        "durst_data": {
-            "definition": "Akute Entzündung des Lungengewebes.",
-            "ursachen": { "text": "Bakteriell, viral oder mykotisch.", "keywords": ["Infektion", "Alveolen"] },
-            "risikofaktoren": ["Hohes Alter", "Immunschwäche", "Rauchen"],
-            "symptome": { "list": ["Fieber", "Husten", "Atemnot"], "red_flags": "Zyanose, Verwirrtheit" },
-            "therapie_massnahmen": {
-                "immediate_actions": ["Sauerstoff", "Antibiotika", "Überwachung"],
-                "diagnostic_gold_standard": "Röntgen-Thorax",
-                "guideline_link": "https://register.awmf.org"
+        "sources": [
+            {
+                "source_name": "AWMF S3-Leitlinie Infarkt-Management",
+                "link": "https://register.awmf.org/de/leitlinien/detail/030-120"
+            },
+            {
+                "source_name": "I care Pflege - Thieme Verlag",
+                "link": "https://www.thieme.de/de/pflege/i-care-pflege-150352.htm"
             }
-        },
-        "quiz": [
-            { "id": 1, "question": "Was bestätigt die Diagnose?", "options": ["EKG", "Röntgen", "EEG", "MRT Knie"], "correct_index": 1, "explanation": "Infiltrate im Röntgenbild." },
-            { "id": 2, "question": "Häufigster Erreger?", "options": ["Pilze", "Bakterien", "Parasiten", "Würmer"], "correct_index": 1, "explanation": "Pneumokokken sind häufig." },
-            { "id": 3, "question": "Typisches Symptom?", "options": ["Brustschmerz", "Durchfall", "Sehverlust", "Hautausschlag"], "correct_index": 0, "explanation": "Pleuritischer Schmerz ist typisch." },
-            { "id": 4, "question": "Wichtige Akutmaßnahme?", "options": ["Insulin", "Sauerstoff", "Dialyse", "Sedierung"], "correct_index": 1, "explanation": "Verbessert die Oxygenierung." },
-            { "id": 5, "question": "Risikogruppe?", "options": ["Kinder", "Ältere Menschen", "Sportler", "Vegetarier"], "correct_index": 1, "explanation": "Ältere haben höheres Risiko." }
-        ],
-        "sources": [{ "source_name": "AWMF Pneumonie Leitlinie", "link": "https://register.awmf.org" }]
+        ]
     }
 
 ];

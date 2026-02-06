@@ -1,21 +1,22 @@
 <section class="dashboard bg-background-light dark:bg-background-dark text-slate-900 dark:text-white mesh-gradient flex min-h-screen">
     <app-sidebar class=""></app-sidebar>
     <div class="mx-auto px-8 py-10 ml-60">
+        @if(disease(); as disease){
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
             <div>
                 <div class="flex items-center space-x-3 mb-2">
                     <mat-icon class=" text-primary text-3xl">biotech</mat-icon>
-                    <h2 class="text-3xl font-bold tracking-tight">IN-2026-001</h2>
+                    <h2 class="text-3xl font-bold tracking-tight">{{ disease.disease_id}}</h2>
                 </div>
                 <h1 class="text-5xl font-extrabold text-rose-500 dark:text-rose-400">
-                    Influenza (Grippe)
+                    {{ disease.name}}
                 </h1>
                 <p class="text-slate-500 dark:text-slate-400 mt-2 text-lg">
-                    Infektiologie / Allgemeinmedizin
+                    {{ disease.category }}
                 </p>
             </div>
             <div class="flex items-center space-x-2 bg-slate-100 dark:bg-slate-800 p-2 rounded-lg">
-                <button class="p-2 hover:bg-white dark:hover:bg-slate-700 rounded shadow-sm transition-all">
+                <button class="p-2 hover:bg-white dark:hover:bg-slate-700 rounded shadow-sm transition-all" (click)="print()">
                     <mat-icon class="text-slate-600 dark:text-slate-300">print</mat-icon>
                 </button>
                 <button  class="p-2 hover:bg-white dark:hover:bg-slate-700 rounded shadow-sm transition-all">
@@ -23,129 +24,86 @@
                 </button>
             </div>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div  class="lg:col-span-2 p-6 rounded-2xl bg-white dark:bg-card-dark border border-slate-200 dark:border-slate-800 shadow-sm">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"  id="print-area">
+            <div  class="lg:col-span-2 p-6 rounded-2xl bg-card-dark dark:bg-card-dark border border-slate-200 dark:border-slate-800 shadow-sm">
                 <div class="flex items-center space-x-2 mb-4">
                     <span class="px-3 py-1 bg-blue-500/10 text-blue-500 text-xs font-bold uppercase tracking-widest rounded-full">Definition</span>
                 </div>
                 <p  class="text-slate-600 dark:text-slate-300 leading-relaxed text-lg">
-                    Die Influenza ist eine akut verlaufende, hochansteckende
-                    Virusinfektion der Atemwege, verursacht durch Influenza-A- oder
-                    Influenza-B-Viren.
+                    {{ disease.durst_data.definition }}
                 </p>
             </div>
 
-            <div  class="p-6 rounded-2xl bg-white dark:bg-card-dark border border-slate-200 dark:border-slate-800 shadow-sm">
+            <div  class="p-6 rounded-2xl bg-card-dark dark:bg-card-dark border border-slate-200 dark:border-slate-800 shadow-sm">
                 <div class="flex items-center space-x-2 mb-4">
                     <span class="px-3 py-1 bg-indigo-500/10 text-indigo-500 text-xs font-bold uppercase tracking-widest rounded-full">Ursachen</span>
                 </div>
                 <p class="text-slate-600 dark:text-slate-300 mb-4">
-                    Übertragung hauptsächlich durch Tröpfcheninfektion; das Virus
-                    befällt die Schleimhäute der Atemwege.
+                    {{ disease.durst_data.ursachen.text }}
                 </p>
                 <div class="flex flex-wrap gap-2">
-                    <span class="text-xs px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 rounded-md">
-                        #Influenza-Virus</span>
-                    <span class="text-xs px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 rounded-md">
-                        #Tröpfcheninfektion</span>
-                    <span class="text-xs px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 rounded-md">
-                        #Atemwege</span>
+                    @for(keyword of disease.durst_data.ursachen.keywords; track keyword){
+                      <span class="text-xs px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 rounded-md">
+                        #{{ keyword }}</span>  
+                    }
                 </div>
             </div>
 
-            <div class="p-6 rounded-2xl bg-white dark:bg-card-dark border border-slate-200 dark:border-slate-800 shadow-sm border-l-4 border-l-amber-500">
+            <div class="p-6 rounded-2xl bg-card-dark dark:bg-card-dark! border border-slate-200 dark:border-slate-800 shadow-sm border-l-4 border-l-amber-500">
                 <div class="flex items-center space-x-2 mb-4">
-                    <mat-icon class=" text-amber-500">warning</mat-icon>
+                    <mat-icon class=" text-amber-500!">warning</mat-icon>
                     <h3 class="font-bold text-slate-800 dark:text-slate-100"> Risikofaktoren</h3>
                 </div>
                 <ul class="space-y-3">
-                    <li class="flex items-center text-slate-600 dark:text-slate-300">
-                        <mat-icon class=" text-amber-500 text-sm mr-2">check_circle</mat-icon>
-                        Hohes Alter
-                    </li>
-                    <li class="flex items-center text-slate-600 dark:text-slate-300">
-                        <mat-icon class=" text-amber-500 text-sm mr-2">check_circle</mat-icon>
-                        Chronische Erkrankungen
-                    </li>
-                    <li class="flex items-center text-slate-600 dark:text-slate-300">
-                        <mat-icon class=" text-amber-500 text-sm mr-2">check_circle</mat-icon>
-                        Immunsuppression
-                    </li>
-                    <li class="flex items-center text-slate-600 dark:text-slate-300">
-                        <mat-icon class=" text-amber-500 text-sm mr-2">check_circle</mat-icon>
-                        Schwangerschaft
-                    </li>
-                    <li class="flex items-center text-slate-600 dark:text-slate-300">
-                        <mat-icon class=" text-amber-500 text-sm mr-2">check_circle</mat-icon>
-                        Fehlende Impfung
-                    </li>
+                    @for(risiko of disease.durst_data.risikofaktoren; track risiko){
+                        <li class="flex items-center text-slate-600 dark:text-slate-300">
+                            <mat-icon class=" text-amber-500! text-sm mr-2">check_circle</mat-icon>
+                            {{ risiko }}
+                        </li>
+                    }
                 </ul>
             </div>
 
-            <div  class="p-6 rounded-2xl bg-white dark:bg-card-dark border border-slate-200 dark:border-slate-800 shadow-sm border-l-4 border-l-rose-500">
+            <div  class="p-6 rounded-2xl bg-card-dark dark:bg-card-dark border border-slate-200 dark:border-slate-800 shadow-sm border-l-4 border-l-rose-500">
                 <div class="flex items-center space-x-2 mb-4">
-                    <mat-icon class="text-rose-500">coronavirus</mat-icon>
+                    <mat-icon class="text-rose-500!">coronavirus</mat-icon>
                     <h3 class="font-bold text-slate-800 dark:text-slate-100"> Symptome</h3>
                 </div>
                 <ul class="space-y-3 mb-6">
-                    <li class="flex items-center text-slate-600 dark:text-slate-300">
-                        <mat-icon class="text-rose-500 text-sm mr-2">bolt</mat-icon>
-                        Plötzlicher Krankheitsbeginn
-                    </li>
-                    <li class="flex items-center text-slate-600 dark:text-slate-300">
-                        <mat-icon class="text-rose-500 text-sm mr-2">thermostat</mat-icon>
-                        Hohes Fieber
-                    </li>
-                    <li class="flex items-center text-slate-600 dark:text-slate-300">
-                        <mat-icon class="text-rose-500 text-sm mr-2">air</mat-icon>
-                        Trockener Husten
-                    </li>
-                    <li class="flex items-center text-slate-600 dark:text-slate-300">
-                        <mat-icon class="text-rose-500 text-sm mr-2">personal_injury</mat-icon>
-                        Kopf- und Gliederschmerzen
-                    </li>
-                    <li class="flex items-center text-slate-600 dark:text-slate-300">
-                        <mat-icon class="text-rose-500 text-sm mr-2">sentiment_very_dissatisfied</mat-icon>
-                        Starke Müdigkeit
-                    </li>
+                    @for(symptome of disease.durst_data.symptome.list; track symptome){
+                        <li class="flex items-center text-slate-600 dark:text-slate-300">
+                            <mat-icon class="text-rose-500! text-sm mr-2">bolt</mat-icon>
+                            {{ symptome }}
+                        </li>
+                    }
                 </ul>
                 <div class="p-3 bg-rose-500/10 rounded-lg">
                     <p class="text-xs font-bold text-rose-500 uppercase mb-1">
                         Alarmzeichen
                     </p>
                     <p class="text-sm text-rose-700 dark:text-rose-300">
-                        Atemnot, anhaltend hohes Fieber, Bewusstseinsstörung
+                        {{ disease.durst_data.symptome.red_flags }}
                     </p>
                 </div>
             </div>
 
-            <div class="p-6 rounded-2xl bg-white dark:bg-card-dark border border-slate-200 dark:border-slate-800 shadow-sm border-l-4 border-l-emerald-500">
+            <div class="p-6 rounded-2xl bg-card-dark dark:bg-card-dark border border-slate-200 dark:border-slate-800 shadow-sm border-l-4 border-l-emerald-500">
                 <div class="flex items-center space-x-2 mb-4">
                     <mat-icon class="text-emerald-500">healing</mat-icon>
                     <h3 class="font-bold text-slate-800 dark:text-slate-100"> Therapie</h3>
                 </div>
                 <ul class="space-y-3 mb-6">
+                    @for(therapie of disease.durst_data.therapie_massnahmen.immediate_actions; track therapie){
                     <li class="flex items-center text-slate-600 dark:text-slate-300">
-                        <mat-icon class="text-emerald-500 text-sm mr-2">task_alt</mat-icon>
-                        Bettruhe
+                        <mat-icon class="text-emerald-500! text-sm mr-3! m-1">task_alt</mat-icon>
+                        {{ therapie }}
                     </li>
-                    <li class="flex items-center text-slate-600 dark:text-slate-300">
-                        <mat-icon class="text-emerald-500 text-sm mr-2">task_alt</mat-icon>
-                        Flüssigkeitszufuhr
-                    </li>
-                    <li class="flex items-center text-slate-600 dark:text-slate-300">
-                        <mat-icon class="text-emerald-500 text-sm mr-2"  >task_alt</mat-icon>
-                        Fiebersenkende Maßnahmen
-                    </li>
-                    <li class="flex items-center text-slate-600 dark:text-slate-300">
-                        <mat-icon class="text-emerald-500 text-sm mr-2" >task_alt</mat-icon>
-                        Isolation
-                    </li>
+                    }
                 </ul>
                 <div class="pt-4 border-t border-slate-100 dark:border-slate-700">
                     <p class="text-sm font-semibold mb-1">Standard Diagnose</p>
-                    <p class="text-sm text-slate-500 dark:text-slate-400 italic">
-                        PCR-Nachweis aus Nasen-/Rachenabstrich
+                    <p class="text-sm text-white dark:text-slate-400 italic">
+                        {{ disease.durst_data.therapie_massnahmen.diagnostic_gold_standard }}
                     </p>
                 </div>
             </div>
@@ -158,6 +116,6 @@
                 <span>Start Quiz</span>
             </button>
         </div>
-
+    }
     </div>
 </section>
