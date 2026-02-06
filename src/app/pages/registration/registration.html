@@ -2,7 +2,7 @@
   <app-header></app-header>
   <div class="relative flex min-h-screen w-full flex-col mesh-gradient">
     <main class="flex-1 flex items-center justify-center px-4 py-12 md:py-20">
-      <div  class="w-full max-w-[480px] bg-white dark:bg-[#161b26] border border-slate-200 dark:border-[#282e39] rounded-xl shadow-2xl p-8 md:p-10">
+      <div  class="w-full max-w-[520px] bg-white dark:bg-[#161b26] border border-slate-200 dark:border-[#282e39] rounded-xl shadow-2xl p-8 md:p-10">
         <div class="text-center mb-8">
           <h1 class="text-slate-900 dark:text-white text-[32px] font-bold leading-tight mb-2">
             Konto erstellen
@@ -17,28 +17,28 @@
           <div class="flex flex-col gap-2">
             <label class="text-slate-700 dark:text-white text-sm font-medium">Name</label>
             <input
-              class="form-input w-full rounded-lg border border-slate-300 dark:border-[#3b4354] bg-white dark:bg-[#1c222d] text-slate-900 dark:text-white focus:border-primary focus:ring-1 focus:ring-primary h-12 px-4 placeholder:text-slate-400 dark:placeholder:text-[#9da6b9] text-base"
+              class="form-input flex w-full rounded-lg text-gray-900 dark:text-white focus:outline-0 focus:ring-1 focus:ring-primary border border-gray-300 dark:border-[#3b4354] bg-white dark:bg-[#1c1f27] h-14 placeholder:text-gray-400 dark:placeholder:text-[#9da6b9] px-4 text-base font-normal"
               placeholder="Ihr vollständiger Name"
               type="text"
               formControlName="name"
             />
             @if (name?.errors?.['required']) {
-              <mat-error> Your Name is required </mat-error>
+              <mat-error class="text-error!"> Your Name is required </mat-error>
             }
           </div>
 
           <div class="flex flex-col gap-2">
             <label class="text-slate-700 dark:text-white text-sm font-medium">E-Mail</label>
             <input
-              class="form-input w-full rounded-lg border border-slate-300 dark:border-[#3b4354] bg-white dark:bg-[#1c222d] text-slate-900 dark:text-white focus:border-primary focus:ring-1 focus:ring-primary h-12 px-4 placeholder:text-slate-400 dark:placeholder:text-[#9da6b9] text-base"
+              class="form-input flex w-full rounded-lg text-gray-900 dark:text-white focus:outline-0 focus:ring-1 focus:ring-primary border border-gray-300 dark:border-[#3b4354] bg-white dark:bg-[#1c1f27] h-14 placeholder:text-gray-400 dark:placeholder:text-[#9da6b9] px-4 text-base font-normal"
               placeholder="name@beispiel.de"
               type="email"
               formControlName="email"
             />
             @if (email?.errors?.['required']) {
-              <mat-error> Your Email is required </mat-error>
+              <mat-error class="text-error!"> Your Email is required </mat-error>
             } @else if (email?.errors?.['email']) {
-              <mat-error> Please Enter a Valid Email </mat-error>
+              <mat-error class="text-error!"> Please Enter a Valid Email </mat-error>
             }
           </div>
 
@@ -46,7 +46,7 @@
             <label class="text-slate-700 dark:text-white text-sm font-medium">Passwort</label>
             <div class="relative flex items-center">
               <input
-                class="form-input w-full rounded-lg border border-slate-300 dark:border-[#3b4354] bg-white dark:bg-[#1c222d] text-slate-900 dark:text-white focus:border-primary focus:ring-1 focus:ring-primary h-12 px-4 pr-12 placeholder:text-slate-400 dark:placeholder:text-[#9da6b9] text-base"
+                class="form-input flex w-full rounded-lg text-gray-900 dark:text-white focus:outline-0 focus:ring-1 focus:ring-primary border border-gray-300 dark:border-[#3b4354] bg-white dark:bg-[#1c1f27] h-14 placeholder:text-gray-400 dark:placeholder:text-[#9da6b9] px-4 text-base font-normal"
                 placeholder="Mindestens 8 Zeichen"
                 [type]="type"
                 formControlName="password"
@@ -63,6 +63,11 @@
                 }}</mat-icon>
               </button>
             </div>
+            @if (password?.errors?.['required']) {
+              <mat-error class="text-error!"> Your Password is required </mat-error>
+            } @else if (password?.errors?.['minlength']) {
+              <mat-error class="text-error!"> Your Password must be at least 8 characters long </mat-error>
+            }
           </div>
 
           <div class="flex flex-col gap-2">
@@ -71,7 +76,7 @@
             >
             <div class="relative flex items-center">
               <input
-                class="form-input w-full rounded-lg border border-slate-300 dark:border-[#3b4354] bg-white dark:bg-[#1c222d] text-slate-900 dark:text-white focus:border-primary focus:ring-1 focus:ring-primary h-12 px-4 pr-12 placeholder:text-slate-400 dark:placeholder:text-[#9da6b9] text-base"
+                class="form-input flex w-full rounded-lg text-gray-900 dark:text-white focus:outline-0 focus:ring-1 focus:ring-primary border border-gray-300 dark:border-[#3b4354] bg-white dark:bg-[#1c1f27] h-14 placeholder:text-gray-400 dark:placeholder:text-[#9da6b9] px-4 text-base font-normal"
                 placeholder="Passwort bestätigen"
                 [type]="type"
                 formControlName="confirmPassword"
@@ -88,7 +93,24 @@
                 }}</mat-icon>
               </button>
             </div>
+            @if (confirmPassword?.errors?.['required']) {
+              <mat-error class="text-error!"> Please confirm your password </mat-error>
+            } @else if (confirmPassword?.errors?.['passwordMismatch']) {
+              <mat-error class="text-error!"> Passwords do not match </mat-error>
+            }
           </div>
+
+          <div class="flex items-start gap-3 py-2">
+            <div class="flex h-5 items-center">
+              <input formControlName="agreeTerms" class="h-4 w-4 rounded border-white/10 bg-background-dark/50 text-primary focus:ring-primary/40 focus:ring-offset-0 transition-all cursor-pointer" id="privacy-policy" name="privacy-policy" type="checkbox"/>
+            </div>
+            <label class="text-xs sm:text-sm text-slate-400 cursor-pointer select-none leading-relaxed" for="privacy-policy">
+                Ich akzeptiere die <a class="text-primary hover:underline decoration-primary/30 underline-offset-2 transition-all" href="#">Datenschutzbestimmungen</a> und <a class="text-primary hover:underline decoration-primary/30 underline-offset-2 transition-all" href="#">Nutzungsbedingungen</a>
+            </label>
+          </div>
+          @if (agreeTerms?.errors?.['required']) {
+              <mat-error class="text-error!"> You must agree to the terms and conditions </mat-error>
+            }
 
           <div class="pt-4">
             <button

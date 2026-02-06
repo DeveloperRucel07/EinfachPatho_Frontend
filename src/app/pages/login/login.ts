@@ -1,5 +1,4 @@
 
-import { timer } from 'rxjs';
 import { Component, signal } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -10,6 +9,7 @@ import { MatIconModule } from "@angular/material/icon";
 import { Header } from "../../shared/header/header";
 import { AuthService} from '../../services/auth-service';
 import { LoginPayload, LoginResponse } from '../../models/auth-models';
+import { SnackbarService } from '../../services/snackbar';
 
 @Component({
   standalone: true,
@@ -22,7 +22,6 @@ import { LoginPayload, LoginResponse } from '../../models/auth-models';
 export class Login {
   type: string = 'password';
   hide = signal(true);
-  errorMessage = '';
 
   loginForm = new FormGroup({
     username: new FormControl<string>('', [
@@ -35,16 +34,10 @@ export class Login {
     ])
   });
   
-  constructor(private auth: AuthService, private router: Router) {
+  constructor(private auth: AuthService, private router: Router, private snackbar: SnackbarService) {
     
   }
 
-  showError(message: string) {
-    this.errorMessage = message;
-    timer(4000).subscribe(() => {
-      this.errorMessage = '';
-    });
-  }
 
   submit() {
     if (this.loginForm.invalid) {
@@ -60,15 +53,16 @@ export class Login {
 
     this.auth.login(loginData).subscribe({
       next: (response: LoginResponse) => {
+        this.snackbar.success(response.detail);
         this.router.navigate(['/dashboard']);
       },
       error: (err) => {
         if (err.status === 0) {
-          this.showError('Server is not reachable. Please try again later.');
+          this.snackbar.error('Server is not reachable. Please try again later.');
         } else if (err.status === 400) {
-          this.showError('Invalid username or password.');
+          this.snackbar.error('Invalid username or password.');
         } else {
-          this.showError('Something went wrong.');
+          this.snackbar.error('Something went wrong. Please try again.');
         }
       }
     });

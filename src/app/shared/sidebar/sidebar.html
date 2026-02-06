@@ -40,7 +40,7 @@
           background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAZHSxJOYbRd10rG7MPNGcTUs-mEVOC8SZCZUaH12nnH334QXi41BJyG1J1s-M5SYxH0PFgbfxYYtGKKdw7BVd6FT5o9kvr_vcF_VJ-LX7QQ7LrXFgMSDyyoO2WXRxGjjXxLUzPsOioWnQA-JI2_9-Uf1t7_VjBC2TAFh2GXJhv2RHMAhlk11DGgF7xPpODzXTpVNZ-AJQb_9o_VSOTg5H4XvqgjUXXqJDuiNbQCRVhKJOOANGxSFIOqhe4yAJle26dmBD-PxK9I1hA');
         "
       ></div>
-      <div class="flex flex-col overflow-hidden">
+      <div class="flex flex-col overflow-hidden" (click)="onLogout()">
         <h1 class="text-slate-900 dark:text-white text-sm font-medium truncate">{{user?.username}}</h1>
         <p class="text-slate-500 dark:text-[#9da6b9] text-xs truncate">{{user?.email}}</p>
       </div>

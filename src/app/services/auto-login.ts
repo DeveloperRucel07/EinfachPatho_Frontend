@@ -24,3 +24,21 @@ export const authGuard: CanActivateFn = () => {
     })
   );
 };
+
+export const guestGuard: CanActivateFn = () => {
+  const auth = inject(AuthService);
+  const router = inject(Router);
+
+  return auth.checkAuth().pipe(
+    map(user => {
+      if (user) {
+        router.navigate(['/dashboard']);
+        return false;
+      }
+      return true; 
+    }),
+    catchError(() => {
+      return of(true);
+    })
+  );
+};

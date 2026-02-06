@@ -18,6 +18,7 @@ export interface RegisterPayload {
   username: string;
   email: string;
   password: string;
+  confirmed_password: string;
 }
 
 export interface RegisterResponse {

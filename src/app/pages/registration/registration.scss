@@ -9,6 +9,22 @@
   box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
 }
 
-.desabled{
+.desabled {
   background-color: gray;
 }
+
+input[type='checkbox'] {
+  background-color: rgba(10, 12, 16, 0.5);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+input[type='checkbox']:focus {
+  --tw-ring-color: rgba(19, 91, 236, 0.4);
+  border-color: #135bec;
+}
+
+input[type='checkbox']:checked {
+  background-color: #135bec;
+  border-color: #135bec;
+}
+

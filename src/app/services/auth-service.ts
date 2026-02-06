@@ -1,7 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, catchError, map, Observable, of, tap } from 'rxjs';
-import { LoginPayload, LoginResponse, RegisterPayload, User } from '../models/auth-models';
+import { LoginPayload, LoginResponse, RegisterPayload, RegisterResponse, User } from '../models/auth-models';
 
 
 @Injectable({ 
@@ -14,6 +14,7 @@ export class AuthService {
 
   private readonly API_BASE = 'http://localhost:8000';
   private readonly loginUrl = `${this.API_BASE}/api/login/`;
+  private readonly logoutUrl = `${this.API_BASE}/api/logout/`;
   private readonly myUrl = `${this.API_BASE}/api/auth/me/`;
   private readonly refreshUrl = `${this.API_BASE}/api/token/refresh/`;
   private readonly registerUrl = `${this.API_BASE}/api/register/`;
@@ -57,14 +58,17 @@ export class AuthService {
     );
   }
 
-  get currentUser(): User | null {
-    return this.userSubject.value;
+  register(payload: RegisterPayload): Observable<RegisterResponse> {
+    return this.http.post<RegisterResponse>(this.registerUrl, payload);
   }
 
-  register(payload: RegisterPayload): Observable<unknown> {
-    return this.http.post(this.registerUrl, payload);
+  logout(){
+    return this.http.post(this.logoutUrl, {}, {withCredentials: true}).pipe(
+      tap(()=>{
+        this.userSubject.next(null);
+      })
+    )
   }
-
 
 }
 

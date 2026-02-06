@@ -16,13 +16,6 @@
         </h2>
       </div>
       <form class="flex flex-col gap-6" [formGroup]="loginForm" (ngSubmit)="submit()" >
-        @if(errorMessage.length > 2){
-          <div class="flex bg-error h-10 text-white transition-opacity duration-300 items-center justify-center text-lg" [class.opacity-0]="!errorMessage">
-            {{ errorMessage }}
-          </div>
-        }
-        
-
         <div class="flex flex-col gap-2">
           <label class="text-gray-700 dark:text-white text-sm font-semibold ml-1">Name</label>
           <div class="relative glow-blue rounded-lg transition-all">
@@ -44,17 +37,17 @@
             >
           </div>
           <div
-            class="relative flex items-stretch rounded-lg glow-blue transition-all border border-gray-300 dark:border-[#3b4354] bg-white dark:bg-[#1c1f27]"
+            class="relative flex items-stretch rounded-lg glow-blue transition-all border border-gray-300 dark:border-[#3b4354] bg-white dark:bg-[#1c1f27]  focus-within:border-primary focus:ring-0 focus:ring-primary focus:border-1"
           >
             <input
               matInput
-              class="form-input flex-1 border-none bg-transparent h-14 text-gray-900 dark:text-white focus:outline-0 focus:ring-1 focus:ring-primary placeholder:text-gray-400 dark:placeholder:text-[#9da6b9] px-4 text-base font-normal rounded-l-lg"
+              class="form-input flex-1 border-none bg-transparent h-14 text-gray-900 dark:text-white focus:outline-0 focus:ring-0 focus:ring-primary placeholder:text-gray-400 dark:placeholder:text-[#9da6b9] px-4 text-base font-normal rounded-l-lg"
               placeholder="Password eingeben"
               [type]="type"
               formControlName="password"
             />
             <button
-              class="text-gray-400 dark:text-[#9da6b9] flex items-center justify-center px-4 hover:text-primary transition-colors"
+              class="text-gray-400 dark:text-[#9da6b9] flex items-center justify-center px-4 hover:text-primary transition-all"
               type="button"
               (click)="clickEvent($event)"
               [attr.aria-label]="'Hide password'"

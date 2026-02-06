@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { authGuard } from './services/auto-login';
+import { authGuard, guestGuard } from './services/auto-login';
 
 
 
