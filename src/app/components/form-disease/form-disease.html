@@ -1,10 +1,19 @@
-<form [formGroup]="diseaseForm" (submit)="submit()" class="generate-desease-form flex flex-row gap-4 mt-4  w-full ">
-    <mat-form-field class="w-[75%]">
-        <mat-label>Enter a Disease</mat-label>
-        <input matInput placeholder="Malaria" formControlName="disease">
-        @if(diseaseForm.get('disease')?.invalid && (diseaseForm.get('disease')?.touched || diseaseForm.get('disease')?.dirty)){
-            <mat-error>Please enter a valid disease name.</mat-error>
-        }    
-    </mat-form-field>
+<h4 class="text-slate-700 dark:text-primary text-xl font-medium text-center">Generiere eine Krankheit nach DURST</h4>
+<form class="p-1 m-2 dark:border-[#3b4354] rounded-lg flex flex-col md:flex-row gap-4 items-center" [formGroup]="diseaseForm" (ngSubmit)="submit()">
+    <div class="flex flex-col gap-2 w-full md:w-3/4">
+        <input
+        class="form-input flex w-full rounded-lg text-gray-900 dark:text-white focus:outline-0 focus:ring-1 focus:ring-primary border border-gray-300 dark:border-[#3b4354] bg-white dark:bg-[#1c1f27] h-14 placeholder:text-gray-400 dark:placeholder:text-[#9da6b9] px-4 text-base font-normal"
+        placeholder="Screiben Sie den Namen der Krankheit"
+        type="text"
+        formControlName="disease"
+        />
+    </div>
+        
     <button matFab extended color="primary" class="w-32" [disabled]="diseaseForm.invalid">Generate</button>
 </form>
+@if(diseaseForm.get('disease')?.invalid && (diseaseForm.get('disease')?.touched || diseaseForm.get('disease')?.dirty)){
+    <mat-error class="text-error">Bitte geben Sie einen gültigen Krankheitsnamen ein.</mat-error>
+}  
+
+
+

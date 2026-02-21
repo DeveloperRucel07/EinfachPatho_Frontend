@@ -1,6 +1,6 @@
-import { Component, computed, inject } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { DiseasesService } from '../../diseases.service';
+import { DiseasesService } from '../../services/diseases.service';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { Sidebar } from "../../shared/sidebar/sidebar";
@@ -14,17 +14,21 @@ import { Sidebar } from "../../shared/sidebar/sidebar";
 export class DiseaseDetail {
   private route = inject(ActivatedRoute);
   private diseaseService = inject(DiseasesService);
-  diseaseId = this.route.snapshot.paramMap.get('id') || '';
-
+  diseaseId:string = this.route.snapshot.paramMap.get('id') || '';
+  disease = signal<any>(null);
   print() {
       window.print();
   }
 
-  disease = computed(() =>
-    this.diseaseService.diseases()
-      .find(d => d.disease_id === this.diseaseId)
-  );
+  ngOnInit() {
+    this.diseaseService.getDiseaseById(this.diseaseId).subscribe({
+      next: (data) => {
+        this.disease.set(data);
+      },
+      error: (err) => {
+        console.error('Error loading disease:', err);
+      }
+    });
+  }
   
-
-
 }

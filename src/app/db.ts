@@ -236,7 +236,7 @@ export const DB = [
             },
             {
                 "source_name": "I care Pflege - Thieme Verlag",
-                "link": "https://www.thieme.de/de/pflege/i-care-pflege-150352.htm"
+                "link": "https://www.thieme.de/de/pflege/i-care-pflege-150352.html"
             }
         ]
     }

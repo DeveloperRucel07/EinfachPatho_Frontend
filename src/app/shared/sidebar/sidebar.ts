@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { MatIcon } from "@angular/material/icon";
 import { User } from '../../models/auth-models';
 import { AuthService } from '../../services/auth-service';
@@ -8,7 +9,7 @@ import { ThemeService } from '../../services/theme';
 
 @Component({
   selector: 'app-sidebar',
-  imports: [ MatIcon],
+  imports: [ MatIcon, RouterModule ],
   templateUrl: './sidebar.html',
   styleUrl: './sidebar.scss',
 })
