@@ -1,9 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { DiseasesService } from '../../services/diseases.service';
 import { Router } from '@angular/router';
+import { finalize } from 'rxjs';
+import { LoadingService } from '../../services/loading';
+import { SnackbarService } from '../../services/snackbar';
 
 
 @Component({
@@ -20,7 +23,8 @@ export class FormDisease {
     ])
   });
 
-  constructor(private diseaseService: DiseasesService, private router: Router) {
+  loading = inject(LoadingService)
+  constructor(private diseaseService: DiseasesService, private router: Router, private snackbar: SnackbarService) {
 
   }
 
@@ -31,6 +35,8 @@ export class FormDisease {
     }
     const prompt = this.diseaseForm.value.disease || '';
     this.generateDisease(prompt);
+    this.diseaseForm.reset();
+    this.loading.show();
   }
 
 
@@ -39,14 +45,16 @@ export class FormDisease {
       prompt: prompt
     };
 
-    this.diseaseService.createDisease(payload).subscribe({
+    this.diseaseService.createDisease(payload)
+    .pipe(finalize(()=>this.loading.hide()))
+    .subscribe({
       next: (response) => {
-        console.log("Disease generated successfully:", response);
-        this.diseaseForm.reset();
+        this.snackbar.success("New disease generate with success:")
         this.router.navigate(['/disease', response.disease_id]);
       },
       error: (error) => {
         console.error("Error:", error);
+        this.snackbar.error("Error during the genaration!")
       }
     });
   }

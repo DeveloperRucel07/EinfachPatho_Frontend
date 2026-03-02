@@ -13,7 +13,14 @@
 </form>
 @if(diseaseForm.get('disease')?.invalid && (diseaseForm.get('disease')?.touched || diseaseForm.get('disease')?.dirty)){
     <mat-error class="text-error">Bitte geben Sie einen gültigen Krankheitsnamen ein.</mat-error>
-}  
+}
+
+@if (loading.load$) {
+  <div class="loading-overlay">
+    <div class="spinner"></div>
+    <p class="text-xl text-rose-400 dark:text-rose-400">Generating disease... please wait</p>
+  </div>
+}
 
 
 
