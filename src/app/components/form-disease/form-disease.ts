@@ -3,6 +3,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { DiseasesService } from '../../services/diseases.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -19,7 +20,7 @@ export class FormDisease {
     ])
   });
 
-  constructor(private diseaseService: DiseasesService) {
+  constructor(private diseaseService: DiseasesService, private router: Router) {
 
   }
 
@@ -40,13 +41,13 @@ export class FormDisease {
 
     this.diseaseService.createDisease(payload).subscribe({
       next: (response) => {
-        console.log("Disease generated:", response);
+        console.log("Disease generated successfully:", response);
+        this.diseaseForm.reset();
+        this.router.navigate(['/disease', response.disease_id]);
       },
       error: (error) => {
         console.error("Error:", error);
       }
     });
   }
-
-
 }
