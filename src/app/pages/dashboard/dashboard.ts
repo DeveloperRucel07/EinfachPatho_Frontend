@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormDisease } from "../../components/form-disease/form-disease";
 import { DiseaseCard } from "../../components/disease-card/disease-card";
-import { DB } from '../../db';
 import { Sidebar } from "../../shared/sidebar/sidebar";
 import { MatIcon } from "@angular/material/icon";
 import { AuthService } from '../../services/auth-service';

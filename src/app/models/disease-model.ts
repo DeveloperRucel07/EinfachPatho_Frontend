@@ -24,10 +24,25 @@ export interface Source {
   link: string;
 }
 
-export interface Quiz {
+
+export interface Question {
   id: number;
-  question?: string;
-  answers?: string[];
+  question: string;
+  options: string[];
+  correct_index: number;
+  explanation: string;
+}
+export interface QuizType {
+  id: number;
+  title: string;
+  questions: Question[];
+}
+
+export interface QuizState {
+  currentQuestionIndex: number;
+  answers: number[];
+  score: number;
+  completed: boolean;
 }
 
 export interface DurstData {
@@ -60,7 +75,7 @@ export interface Disease {
 
   durst_data: DurstData;
 
-  quizzes: Quiz[];
+  quizzes: QuizType[];
   sources: Source[];
 
   created_at: string;

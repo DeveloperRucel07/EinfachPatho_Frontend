@@ -1,0 +1,31 @@
+@if(question(); as question){
+
+    <main class="flex-1 overflow-y-auto pb-32">
+        <div class="p-4">
+            <div class="flex flex-col rounded-xl overflow-hidden shadow-lg bg-[#1c1f27] border border-[#282e39]">
+                    <div class="w-full h-48 bg-center bg-no-repeat bg-cover" data-alt="Microscopic view of lung tissue pathology" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDS7YDl1AL0o5GO6hw6IylIA-qO53eppqMdI8gYFOpo9rSlH39sh4urzjdPFy9y7kfHDWZMtQxfNzJheLDdV7-CjOAbzmczVT1q6UbYJ2QyEJIkgc5CDCFJZxZ-MsJTSHCznS-Zbd_P3KpyNKZk4P9Gh8eX-z1ing2f7XoggyLNQaAbZeUi6xhX4K1iz_QrKLlDNGlyIVXs7I-EfKLakxq1sKW8a-DxgXHIDEJuXEfC7njOsTR-Bgr_HOrF1xY-wSe7tN8iU2p94uI3");'>
+                    </div>
+                <div class="flex flex-col gap-3 p-5">
+                    <!-- <div class="flex items-center gap-2">
+                        <span class="bg-primary/20 text-primary text-[10px] font-bold px-2 py-0.5 rounded uppercase">Clinical Case</span>
+                    </div> -->
+                    <p class="text-white text-lg font-semibold leading-relaxed">
+                        {{question.question}}
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- Answer Options (RadioList Component Style) -->
+        <div class="px-4 flex flex-col gap-3">
+            @for(option of question.options; track $index; let i=$index){
+                <label class="group flex items-center gap-4 rounded-xl border-2 border-primary bg-[#1c1f27] p-4 cursor-pointer transition-all">
+                    <input checked="" class="h-5 w-5 border-2 border-primary bg-transparent text-transparent checked:border-white checked:bg-[image:--radio-dot-svg] focus:outline-none focus:ring-0 focus:ring-offset-0" name="quiz-option" type="radio" id="{{i}}"/>
+                    <div class="flex grow flex-col">
+                        <p class="text-white text-sm font-bold leading-normal">{{option}}</p>
+                        <!-- <p class="text-[#9da6b9] text-xs font-normal leading-normal mt-0.5">Most common in smokers, central location</p> -->
+                    </div>
+                </label>
+            }
+        </div>
+    </main>
+}

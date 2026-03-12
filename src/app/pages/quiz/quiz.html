@@ -1,0 +1,46 @@
+
+
+<section class="bg-background-light dark:bg-background-dark text-white min-h-screen flex flex-col items-center justify-start custom-radio-svg">
+    @if(quizzes(); as quiz){
+        <div class="w-full max-w-[570px] min-h-screen bg-background-light dark:bg-[#111318] shadow-2xl relative flex flex-col">
+            <header class="sticky top-0 z-50 bg-[#111318] border-b border-[#282e39]">
+                <div class="flex items-center justify-between px-4 py-3">
+                    <div class="flex items-center gap-3">
+                        <button class="p-2 hover:bg-[#282e39] rounded-lg transition-colors">
+                            <mat-icon class="material-symbols-outlined text-white">menu</mat-icon>
+                        </button>
+                        <h1 class="text-white text-md font-bold leading-tight tracking-tight">{{quiz.title}}</h1>
+                    </div>
+                    <div class="flex items-center gap-2 bg-[#282e39] px-3 py-1.5 rounded-lg">
+                        <mat-icon class="material-symbols-outlined text-primary text-[18px]">timer</mat-icon>
+                        <span class="text-white text-sm font-bold">12:45</span>
+                    </div>
+                </div>
+                <div class="px-4 pb-4">
+                    <div class="flex flex-col gap-2">
+                        <div class="flex justify-between items-center">
+                            <p class="text-white text-xs font-medium uppercase tracking-wider opacity-70">Question 9 of 20</p>
+                            <p class="text-primary text-xs font-bold">45% Complete</p>
+                        </div>
+                        <div class="h-1.5 w-full rounded-full bg-[#3b4354] overflow-hidden">
+                            <div class="h-full bg-primary rounded-full" style="width: 45%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <app-quiz-content [question]="quiz.questions[currentQuestionIndex()]"></app-quiz-content>
+
+            <footer class="fixed bottom-0 w-full max-w-[570px] bg-[#111318] border-t border-[#282e39] p-4 flex gap-4">
+                <button (click)="previousQuestion()" class="flex-1 flex items-center justify-center gap-2 h-12 rounded-xl bg-[#282e39] text-white font-bold hover:bg-[#3b4354] transition-colors">
+                    <mat-icon class="material-symbols-outlined">arrow_back</mat-icon>
+                    <span>Back</span>
+                </button>
+                <button (click)="nextQuestion()" class="flex-[2] flex items-center justify-center gap-2 h-12 rounded-xl bg-primary text-white font-bold hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20">
+                    <span>Next Question</span>
+                    <mat-icon class="material-symbols-outlined">arrow_forward</mat-icon>
+                </button>
+            </footer>
+        </div>
+    }
+</section>
